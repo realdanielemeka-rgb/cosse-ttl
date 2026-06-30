@@ -234,7 +234,7 @@ export default function CornerNav() {
     fontWeight: 600,
     letterSpacing: "0.2em",
     textTransform: "uppercase",
-    padding: "11px 16px",
+    padding: "13px 16px",
     border: "1px solid " + (hovMenuBtn ? "#FFFFFF" : "rgba(255,255,255,0.34)"),
     background: hovMenuBtn ? "#FFFFFF" : "rgba(0,0,0,0.24)",
     color: hovMenuBtn ? "#000000" : "#FFFFFF",
@@ -280,6 +280,8 @@ export default function CornerNav() {
           left: "clamp(20px,2.6vw,34px)",
           pointerEvents: "auto",
           display: "block",
+          padding: 12,
+          margin: -12,
         }}
       >
         <Image
@@ -387,7 +389,9 @@ export default function CornerNav() {
           WebkitBackdropFilter: "blur(7px)",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
+          justifyContent: "flex-start",
+          overflowY: "auto",
+          WebkitOverflowScrolling: "touch",
           padding: "clamp(72px,10vw,120px) clamp(20px,5vw,60px)",
           pointerEvents: menuOpen ? "auto" : "none",
           opacity: menuOpen ? 1 : 0,
@@ -414,7 +418,7 @@ export default function CornerNav() {
             letterSpacing: "0.2em",
             textTransform: "uppercase",
             color: "#FFFFFF",
-            padding: "10px 4px",
+            padding: "13px 12px",
           }}
         >
           Close
@@ -435,7 +439,7 @@ export default function CornerNav() {
         <div
           style={{
             maxWidth: 1320,
-            margin: "0 auto",
+            margin: "auto",
             width: "100%",
             display: "flex",
             flexWrap: "wrap",
@@ -466,6 +470,7 @@ export default function CornerNav() {
                     fontSize: "clamp(2rem,7.5vw,4.2rem)",
                     lineHeight: 1.12,
                     letterSpacing: "-0.02em",
+                    padding: "6px 0",
                     color: active ? "rgba(255,255,255,0.92)" : "rgba(255,255,255,0.3)",
                     transition: "color .35s ease",
                   }}
@@ -531,6 +536,8 @@ export default function CornerNav() {
                   fontSize: "clamp(1.3rem,2.3vw,1.7rem)",
                   fontWeight: 500,
                   letterSpacing: "-0.01em",
+                  padding: "8px 0",
+                  width: "fit-content",
                   color: "rgba(255,255,255,0.85)",
                 }}
               >
@@ -541,7 +548,7 @@ export default function CornerNav() {
             <a
               href="mailto:newbusiness@cosse-ttl.example"
               className="hov-bright"
-              style={{ fontSize: 13, letterSpacing: "0.02em", color: "rgba(255,255,255,0.6)" }}
+              style={{ fontSize: 13, letterSpacing: "0.02em", padding: "14px 0", width: "fit-content", color: "rgba(255,255,255,0.6)" }}
             >
               newbusiness@cosse-ttl.example
             </a>
@@ -551,7 +558,7 @@ export default function CornerNav() {
                 target="_blank"
                 rel="noopener"
                 className="hov-bright"
-                style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)" }}
+                style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", padding: "13px 0", color: "rgba(255,255,255,0.5)" }}
               >
                 Instagram
               </a>
@@ -560,7 +567,7 @@ export default function CornerNav() {
                 target="_blank"
                 rel="noopener"
                 className="hov-bright"
-                style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)" }}
+                style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", padding: "13px 0", color: "rgba(255,255,255,0.5)" }}
               >
                 LinkedIn
               </a>

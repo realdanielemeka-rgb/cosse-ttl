@@ -323,23 +323,23 @@ export default function ContactSurface() {
                 ))}
               </div>
               <div style={{ marginTop: 16, display: "flex", flexDirection: "column", gap: 8 }}>
-                <a href={`mailto:${contact.email}`} className="hov-bright" style={{ fontSize: "1rem", color: "rgba(255,255,255,0.7)" }}>
+                <a href={`mailto:${contact.email}`} className="hov-bright" style={{ fontSize: "1rem", padding: "6px 0", width: "fit-content", color: "rgba(255,255,255,0.7)" }}>
                   {contact.email}
                 </a>
                 <span style={{ fontSize: "1rem", color: "rgba(255,255,255,0.5)" }}>{contact.phone}</span>
               </div>
-              <div style={{ marginTop: 18, display: "flex", gap: 18 }}>
-                <a href="https://instagram.com" target="_blank" rel="noopener" className="hov-bright" style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)" }}>
+              <div style={{ marginTop: 14, display: "flex", gap: 18 }}>
+                <a href="https://instagram.com" target="_blank" rel="noopener" className="hov-bright" style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", padding: "12px 0", color: "rgba(255,255,255,0.5)" }}>
                   Instagram
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener" className="hov-bright" style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)" }}>
+                <a href="https://linkedin.com" target="_blank" rel="noopener" className="hov-bright" style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", padding: "12px 0", color: "rgba(255,255,255,0.5)" }}>
                   LinkedIn
                 </a>
               </div>
             </div>
             <div style={{ borderTop: "1px solid rgba(255,255,255,0.12)", paddingTop: 24 }}>
               <span style={{ ...labelText, letterSpacing: "0.18em", color: "rgba(255,255,255,0.4)" }}>Looking to join?</span>
-              <Link href="/careers" data-cut className="hov-dim" style={{ display: "block", fontSize: "1.15rem", fontWeight: 500, color: "#FFFFFF", marginTop: 10 }}>
+              <Link href="/careers" data-cut className="hov-dim" style={{ display: "inline-block", fontSize: "1.15rem", fontWeight: 500, color: "#FFFFFF", marginTop: 10, padding: "8px 0" }}>
                 See open roles →
               </Link>
             </div>

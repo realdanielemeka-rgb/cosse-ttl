@@ -4,6 +4,8 @@ import Link from "next/link";
 const linkStyle = {
   fontSize: 15,
   color: "rgba(255,255,255,0.7)",
+  padding: "9px 0",
+  width: "fit-content",
 } as const;
 
 const colLabel = {
@@ -66,7 +68,8 @@ export default function Footer() {
                 textTransform: "uppercase",
                 color: "#FFFFFF",
                 borderBottom: "1px solid rgba(255,255,255,0.3)",
-                paddingBottom: 6,
+                paddingTop: 12,
+                paddingBottom: 8,
               }}
             >
               Start a project <span aria-hidden="true">→</span>
@@ -74,7 +77,7 @@ export default function Footer() {
           </div>
 
           <div style={{ display: "flex", flexWrap: "wrap", gap: "40px clamp(40px,5vw,72px)" }}>
-            <nav aria-label="Explore" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            <nav aria-label="Explore" style={{ display: "flex", flexDirection: "column", gap: 7 }}>
               <span style={colLabel}>Explore</span>
               <Link href="/work" data-cut className="hov-bright" style={linkStyle}>Work</Link>
               <Link href="/capabilities" data-cut className="hov-bright" style={linkStyle}>Capabilities</Link>
@@ -82,13 +85,13 @@ export default function Footer() {
               <Link href="/about" data-cut className="hov-bright" style={linkStyle}>About</Link>
               <Link href="/thinking" data-cut className="hov-bright" style={linkStyle}>Thinking</Link>
             </nav>
-            <nav aria-label="Company" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            <nav aria-label="Company" style={{ display: "flex", flexDirection: "column", gap: 7 }}>
               <span style={colLabel}>Company</span>
               <Link href="/studio" data-cut className="hov-bright" style={linkStyle}>The studio</Link>
               <Link href="/careers" data-cut className="hov-bright" style={linkStyle}>Careers</Link>
               <Link href="/contact" data-cut className="hov-bright" style={linkStyle}>Contact</Link>
             </nav>
-            <nav aria-label="Connect" style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            <nav aria-label="Connect" style={{ display: "flex", flexDirection: "column", gap: 7 }}>
               <span style={colLabel}>Connect</span>
               <a href="https://instagram.com" target="_blank" rel="noopener" className="hov-bright" style={linkStyle}>Instagram</a>
               <a href="https://linkedin.com" target="_blank" rel="noopener" className="hov-bright" style={linkStyle}>LinkedIn</a>

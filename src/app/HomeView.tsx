@@ -372,7 +372,7 @@ export default function HomeView() {
             }}
           >
             <span style={eyebrow}>Selected work</span>
-            <Link href="/work" className="hov-bright" style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(255,255,255,0.55)" }}>
+            <Link href="/work" className="hov-bright" style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", padding: "13px 0", color: "rgba(255,255,255,0.55)" }}>
               All work →
             </Link>
           </Reveal>
@@ -512,7 +512,7 @@ export default function HomeView() {
                 One agency, integrated. We plan it, make it and run it.
               </h2>
             </div>
-            <Link href="/capabilities" data-cut className="hov-bright" style={{ fontSize: 12, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)", whiteSpace: "nowrap" }}>
+            <Link href="/capabilities" data-cut className="hov-bright" style={{ fontSize: 12, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", padding: "13px 0", color: "rgba(255,255,255,0.6)", whiteSpace: "nowrap" }}>
               All capabilities →
             </Link>
           </Reveal>
@@ -538,7 +538,7 @@ export default function HomeView() {
             <h2 style={{ fontWeight: 500, fontSize: "clamp(2rem,4.2vw,3.4rem)", lineHeight: 1.08, letterSpacing: "-0.025em", color: "#FFFFFF", margin: "18px 0 0" }}>
               {about.lead}
             </h2>
-            <Link href="/about" data-cut className="hov-bright" style={{ display: "inline-flex", alignItems: "center", gap: 10, marginTop: 28, fontSize: 12, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>
+            <Link href="/about" data-cut className="hov-bright" style={{ display: "inline-flex", alignItems: "center", gap: 10, marginTop: 24, padding: "13px 0", fontSize: 12, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>
               About Cossé <span aria-hidden="true">→</span>
             </Link>
           </Reveal>
@@ -565,7 +565,7 @@ export default function HomeView() {
                 Sharp points of view.
               </h2>
             </div>
-            <Link href="/thinking" data-cut className="hov-bright" style={{ fontSize: 12, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)", whiteSpace: "nowrap" }}>
+            <Link href="/thinking" data-cut className="hov-bright" style={{ fontSize: 12, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", padding: "13px 0", color: "rgba(255,255,255,0.6)", whiteSpace: "nowrap" }}>
               All thinking →
             </Link>
           </Reveal>

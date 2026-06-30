@@ -1,25 +1,103 @@
-# CODING AGENTS: READ THIS FIRST
+# Cossé TTL — Website
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+A production-grade front-end for **Cossé TTL**, a Nigerian integrated marketing
+communications agency (Lagos, founded 1995, formerly Bates Cossé). Built in
+**Next.js (App Router) + TypeScript + Tailwind v4**, with **Framer Motion**
+available and **Lenis** for smooth scroll. It implements the approved
+visual-direction prototype that was handed off from Claude Design.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+The aesthetic is the **v3 monochrome idiom**: true black-on-white, one authored
+type voice (Bricolage Grotesque across an extreme weight range, settling on
+entrance), the **acute (´)** from *Cossé* as the recurring brand glyph (loader,
+cursor, hover tick, scroll-progress, filter tick), and **film-cut** route
+transitions. "Start a project" is always one move away.
 
-## What you should do — IMPORTANT
+## Run
 
-**Read the chat transcripts first.** There are 1 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+```bash
+npm install
+npm run dev        # http://localhost:3000
+# production
+npm run build && npm run start
+```
 
-**Read `project/Studio.dc.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+`npm run lint` and `npx tsc --noEmit` both pass clean.
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+## Routes
 
-## About the design files
+| Route | Page |
+| --- | --- |
+| `/` | Home — paced lobby: cover showreel → manifesto → selected work → clients → capabilities → about → thinking → start band |
+| `/work` | Work index — curated grid with quiet discipline filter chips |
+| `/work/[slug]` | Case Study — the seven-part narrative spine (one page per case, statically generated) |
+| `/capabilities` | Six practices in depth + the 7-step method |
+| `/studio` | The integrated room, craft made in-house, and Lagos as studio-and-subject |
+| `/about` | 1995→now story, stats, DNA/values, leadership, clients, careers teaser |
+| `/thinking` | POV/essays index (featured + grid) |
+| `/contact` | Validated brief form (challenge / budget / timeline) with success state |
+| `/careers` | Culture + open roles |
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+Unknown case slugs return a real 404.
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+## Architecture
 
-## Bundle contents
+- **`src/content.ts`** — single, strongly-typed source of truth for all copy,
+  the 9 case studies (every metric flagged `note: "placeholder"`), clients,
+  capabilities, etc., plus `getCase` / `nextCase` helpers.
+- **`src/app/layout.tsx`** — loads the fonts via `next/font/google`
+  (Bricolage Grotesque with the `opsz` axis; Space Mono for case-study credits),
+  sets global + Open Graph metadata and the acute favicon, and mounts the global
+  chrome (`CornerNav`) and `LenisProvider`.
+- **`src/app/globals.css`** — design tokens (CSS variables + Tailwind `@theme`),
+  the global reset, `::selection`, styled scrollbar, form-field chrome, the
+  grain-drift keyframe, the quiet-hover utility classes, and the full
+  `prefers-reduced-motion` stand-down.
+- **`src/components/`**
+  - `CornerNav` — four-corner labels + bordered MENU → full-screen overlay menu;
+    the acute **loader**, **custom cursor** (desktop, motion-on, sits exactly on
+    the pointer), **scroll-progress** marker, and **film-cut** route transitions
+    (intercepts internal `data-cut` links, sweeps two slates closed, then routes).
+  - `Reveal` — the scroll-reveal primitive (fade + rise + optional weight-settle,
+    once). React-stateful, so a parent re-render never resets a revealed element;
+    respects reduced-motion and carries a real-time failsafe.
+  - `StartBand`, `Footer`, `Acute`, `Grain` — shared chrome and the two
+    decorative primitives.
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `Cossé TTL Front-end Prototype` project files (HTML prototypes, assets, components)
+### Notes on the port
+
+- The prototype's inline-style fidelity is preserved (exact `clamp()` ramps,
+  colours, spacing) via React style objects; quiet hovers — which the prototype
+  drove with JS — are expressed as `hov-*` utility classes in `globals.css`.
+- The Case Study route is a real dynamic segment (`/work/[slug]`) with
+  `generateStaticParams` + per-case metadata, replacing the prototype's
+  `?slug=` query.
+- Lenis is a single global provider (survives client navigation) rather than
+  per-page.
+
+## Verified
+
+- `npm run build` prerenders all 9 routes + 9 case-study pages with no errors.
+- All routes return 200 (unknown slug → 404) and render content from `content.ts`.
+- No horizontal overflow and no app console errors at **360 / 768 / 1280px**
+  (checked headless across every route).
+
+## To productionise
+
+1. Drop in the **real Cossé logo + showreel/case footage** (the hero currently
+   plays a placeholder YouTube film; swap for a self-hosted, compressed,
+   `playsInline` master with a poster for Nigerian-mobile budgets). Replace the
+   sliced client tiles in `public/clients/` with official white-knockout vectors.
+2. Replace every **placeholder metric** with verified client results, and wire
+   `Send the brief` (Contact) to a real endpoint / CRM.
+3. Optional: implement the true edge-to-edge **"Total" frame-expansion** between
+   the work grid and the case hero with Framer Motion shared layout (`layoutId` /
+   FLIP) — this build expresses that beat as the film-cut.
+4. Optional: self-host + subset the fonts and the YouTube facade for tighter
+   first-load budgets.
+
+## Clean hands
+
+No AI or stock photos of real people — placeholders are typographic frames +
+grain. All case-study metrics are explicitly **placeholder**. Fonts are OFL/free
+and shippable. The original design bundle (transcripts + `.dc.html` prototypes)
+is preserved under `chats/` and `project/` for reference.

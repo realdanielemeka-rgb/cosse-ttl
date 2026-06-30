@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Study — Cossé TTL</title>
+<meta name="description" content="A Cossé TTL case study: challenge, human truth, idea, execution, channels, impact and legacy.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23000%22%2F%3E%3Cline%20x1%3D%2211%22%20y1%3D%2222%22%20x2%3D%2221%22%20y2%3D%2210%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223.4%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cossé TTL">
+<meta property="og:title" content="Case Study — Cossé TTL">
+<meta property="og:description" content="A Cossé TTL case study: challenge, human truth, idea, execution, channels, impact and legacy.">
+<meta property="og:image" content="og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://www.youtube-nocookie.com">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{background:#000000; color:#FFFFFF; font-family:'Bricolage Grotesque',sans-serif; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden;}
+    ::selection{background:#FFFFFF; color:#000000;}
+    a{text-decoration:none}
+    a:link, a:visited{color:inherit}
+    a:focus-visible, button:focus-visible{outline:1px solid #FFFFFF; outline-offset:4px;}
+    @keyframes grainDrift{from{background-position:0 0} to{background-position:220px 440px}}
+    ::-webkit-scrollbar{width:8px;height:8px} ::-webkit-scrollbar-track{background:#000} ::-webkit-scrollbar-thumb{background:#222} ::-webkit-scrollbar-thumb:hover{background:#333}
+    html{scrollbar-width:thin; scrollbar-color:#222 #000}
+    @media (prefers-reduced-motion: reduce){*{animation:none !important}}
+  </style>
+  <noscript><style>[data-reveal],[data-hero]{opacity:1 !important; transform:none !important}</style></noscript>
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+</helmet>
+
+<div style="position:fixed; inset:0; z-index:50; pointer-events:none;">
+  <dc-import name="CornerNav" style="position:absolute; inset:0; pointer-events:none;" hint-size="100%,100%"></dc-import>
+</div>
+
+<main style="background:#000000;">
+  <article>
+
+  <!-- ════════════ HERO (full-bleed) ════════════ -->
+  <!-- NOTE: full-bleed film/still slots in behind the scrim at production. -->
+  <header data-screen-label="Case hero" style="position:relative; min-height:92svh; display:flex; align-items:flex-end; overflow:hidden; background:#141414; padding:clamp(96px,12vh,150px) clamp(20px,5vw,60px) clamp(40px,6vw,72px);">
+    <span aria-hidden="true" style="position:absolute; top:6%; left:50%; transform:translateX(-50%); font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:clamp(7rem,26vw,22rem); line-height:0.8; color:rgba(255,255,255,0.04); letter-spacing:-0.05em; pointer-events:none; white-space:nowrap;">{{ keyword }}</span>
+    <div aria-hidden="true" style="position:absolute; inset:0; background-image:url(grain.png); background-size:220px; opacity:0.4; mix-blend-mode:overlay; pointer-events:none;"></div>
+    <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.78) 100%); pointer-events:none;"></div>
+    <span style="position:absolute; top:clamp(96px,12vh,140px); left:clamp(20px,5vw,60px); font-family:'Bricolage Grotesque',sans-serif; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.4);">Case film &mdash; placeholder</span>
+
+    <div style="position:relative; max-width:1280px; margin:0 auto; width:100%;">
+      <p data-hero data-d="0" style="font-family:'Bricolage Grotesque',sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.75); margin:0; opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1);">{{ client }} &middot; {{ year }} &middot; {{ primaryTag }}</p>
+      <h1 data-hero data-d="140" style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:clamp(2.6rem,7.6vw,5.6rem); line-height:0.98; letter-spacing:-0.03em; color:#FFFFFF; margin:18px 0 0; margin-left:-0.05em; max-width:18ch; opacity:0; transform:translateY(16px); transition:opacity .9s cubic-bezier(0.16,1,0.3,1), transform .9s cubic-bezier(0.16,1,0.3,1), font-variation-settings .9s cubic-bezier(0.16,1,0.3,1); font-variation-settings:'wght' 420;" data-wght="700">{{ title }}</h1>
+      <p data-hero data-d="320" style="font-family:'Bricolage Grotesque',sans-serif; font-weight:400; font-size:clamp(1.15rem,2.2vw,1.7rem); line-height:1.34; color:rgba(255,255,255,0.75); margin:22px 0 0; max-width:34ch; opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1);">{{ idea }}</p>
+      <div data-hero data-d="460" style="display:flex; flex-wrap:wrap; gap:7px 26px; margin-top:clamp(28px,4vw,46px); opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1);">
+        <sc-for list="{{ credits }}" as="cr" hint-placeholder-count="4">
+          <span style="font-family:'Space Mono',ui-monospace,monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.5);"><span style="color:rgba(255,255,255,0.85);">{{ cr.tc }}</span> &mdash; {{ cr.label }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </header>
+
+  <!-- 01 CHALLENGE -->
+  <section style="background:#000000; padding:clamp(72px,10vw,150px) clamp(20px,5vw,60px);">
+    <div data-reveal style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1); max-width:1100px; margin:0 auto;">
+      <p style="font-family:'Bricolage Grotesque',sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin:0 0 clamp(28px,4vw,48px);">01 &mdash; Challenge</p>
+      <p style="font-family:'Bricolage Grotesque',sans-serif; font-weight:400; font-size:clamp(1.6rem,3.2vw,2.6rem); line-height:1.28; letter-spacing:-0.015em; color:rgba(255,255,255,0.92); margin:0; text-wrap:pretty;">{{ challenge }}</p>
+    </div>
+  </section>
+
+  <!-- 02 HUMAN TRUTH (pull-quote) -->
+  <section style="background:#0A0A0A; padding:clamp(96px,13vw,190px) clamp(20px,5vw,60px); border-top:1px solid rgba(255,255,255,0.12);">
+    <div data-reveal style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1); max-width:1200px; margin:0 auto;">
+      <p style="font-family:'Bricolage Grotesque',sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin:0 0 clamp(32px,4vw,56px);">02 &mdash; Human truth</p>
+      <p style="font-family:'Bricolage Grotesque',sans-serif; font-weight:500; font-size:clamp(2.2rem,5.6vw,4.4rem); line-height:1.1; letter-spacing:-0.03em; color:#FFFFFF; margin:0; max-width:22ch; text-wrap:balance;">{{ truth }}</p>
+    </div>
+  </section>
+
+  <!-- 03 IDEA -->
+  <section style="background:#000000; padding:clamp(72px,10vw,150px) clamp(20px,5vw,60px);">
+    <div data-reveal style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1); max-width:1100px; margin:0 auto;">
+      <p style="font-family:'Bricolage Grotesque',sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin:0 0 clamp(28px,4vw,48px);">03 &mdash; Idea</p>
+      <p style="font-family:'Bricolage Grotesque',sans-serif; font-weight:500; font-size:clamp(1.9rem,4.4vw,3.4rem); line-height:1.18; letter-spacing:-0.025em; color:#FFFFFF; margin:0; max-width:20ch; text-wrap:balance;">{{ ideaFull }}</p>
+    </div>
+  </section>
+
+  <!-- 04 EXECUTION (full-bleed media blocks) -->
+  <section style="background:#0A0A0A; padding:clamp(72px,10vw,150px) clamp(20px,5vw,60px); border-top:1px solid rgba(255,255,255,0.12);">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div data-reveal style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1); margin-bottom:clamp(36px,5vw,60px);">
+        <p style="font-family:'Bricolage Grotesque',sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin:0;">04 &mdash; Execution</p>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:clamp(1.9rem,4vw,3rem); line-height:1.05; letter-spacing:-0.025em; color:#FFFFFF; margin:16px 0 0;">What we made</h2>
+      </div>
+      <!-- NOTE: typographic placeholders — real campaign film/photography slots in here at production. -->
+      <div style="display:flex; flex-direction:column; gap:clamp(20px,3vw,40px);">
+        <sc-for list="{{ execution }}" as="ex" hint-placeholder-count="3">
+          <div data-reveal data-d="{{ ex.d }}" style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1);">
+            <div style="position:relative; overflow:hidden; aspect-ratio:16/9; background:#141414; display:flex; align-items:flex-end; padding:clamp(20px,3vw,40px);">
+              <span aria-hidden="true" style="position:absolute; top:8%; left:50%; transform:translateX(-50%); font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:clamp(4rem,14vw,11rem); color:rgba(255,255,255,0.04); letter-spacing:-0.04em; line-height:1; pointer-events:none;">{{ keyword }}</span>
+              <div aria-hidden="true" style="position:absolute; inset:0; background-image:url(grain.png); background-size:220px; opacity:0.4; mix-blend-mode:overlay; pointer-events:none;"></div>
+              <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%); pointer-events:none;"></div>
+              <span style="position:absolute; top:clamp(16px,2vw,24px); left:clamp(16px,2vw,24px); font-family:'Bricolage Grotesque',sans-serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.55);">{{ ex.idx }} &mdash; Asset</span>
+              <div style="position:relative;">
+                <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:clamp(1.3rem,2.6vw,2rem); line-height:1.08; letter-spacing:-0.02em; color:#FFFFFF; margin:0;">{{ ex.label }}</h3>
+                <p style="font-family:'Bricolage Grotesque',sans-serif; font-size:clamp(0.8rem,1.1vw,0.95rem); line-height:1.5; color:rgba(255,255,255,0.75); margin:10px 0 0; max-width:48ch;">{{ ex.caption }}</p>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 CHANNELS (mono tag row) -->
+  <section style="background:#000000; padding:clamp(72px,10vw,150px) clamp(20px,5vw,60px);">
+    <div data-reveal style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1); max-width:1280px; margin:0 auto;">
+      <p style="font-family:'Bricolage Grotesque',sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin:0 0 clamp(28px,4vw,48px);">05 &mdash; Channels</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px;">
+        <sc-for list="{{ channels }}" as="ch" hint-placeholder-count="4">
+          <span style="font-family:'Bricolage Grotesque',sans-serif; font-size:clamp(0.85rem,1.3vw,1.05rem); letter-spacing:0.04em; text-transform:uppercase; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.18); padding:14px 22px;">{{ ch }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 IMPACT (placeholder metrics) -->
+  <section style="background:#0A0A0A; padding:clamp(72px,10vw,150px) clamp(20px,5vw,60px); border-top:1px solid rgba(255,255,255,0.12);">
+    <div style="max-width:1280px; margin:0 auto;">
+      <div data-reveal style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:14px; margin-bottom:clamp(36px,5vw,60px);">
+        <p style="font-family:'Bricolage Grotesque',sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin:0;">06 &mdash; Impact</p>
+        <span style="font-family:'Bricolage Grotesque',sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.4);">Placeholder figures &mdash; replace with verified results</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.12);">
+        <sc-for list="{{ impact }}" as="m" hint-placeholder-count="3">
+          <div data-reveal data-d="{{ m.d }}" style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1); background:#0A0A0A; padding:clamp(32px,4vw,52px) clamp(24px,2.4vw,36px);">
+            <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:clamp(3rem,6vw,4.6rem); line-height:0.95; letter-spacing:-0.03em; color:#FFFFFF;">{{ m.stat }}</div>
+            <p style="font-family:'Bricolage Grotesque',sans-serif; font-weight:400; font-size:1rem; line-height:1.4; color:rgba(255,255,255,0.75); margin:18px 0 0;">{{ m.label }}</p>
+            <p style="font-family:'Bricolage Grotesque',sans-serif; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin:10px 0 0;">{{ m.note }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 LEGACY -->
+  <section style="background:#000000; padding:clamp(72px,10vw,150px) clamp(20px,5vw,60px);">
+    <div data-reveal style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1); max-width:1100px; margin:0 auto;">
+      <p style="font-family:'Bricolage Grotesque',sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin:0 0 clamp(28px,4vw,48px);">07 &mdash; Legacy</p>
+      <p style="font-family:'Bricolage Grotesque',sans-serif; font-weight:400; font-size:clamp(1.6rem,3.2vw,2.6rem); line-height:1.28; letter-spacing:-0.015em; color:rgba(255,255,255,0.92); margin:0; text-wrap:pretty;">{{ legacy }}</p>
+    </div>
+  </section>
+  </article>
+
+  <!-- NEXT + CTA -->
+  <section id="start" data-screen-label="Next + CTA" style="background:#000000; padding:clamp(64px,8vw,110px) clamp(20px,5vw,60px) clamp(96px,13vw,170px); border-top:1px solid rgba(255,255,255,0.12);">
+    <div style="max-width:1280px; margin:0 auto;">
+      <a href="{{ nextHref }}" onMouseEnter="{{ onNextEnter }}" onMouseLeave="{{ onNextLeave }}" data-reveal style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1); display:block;">
+        <span style="font-family:'Bricolage Grotesque',sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.4);">Next project</span>
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:16px; margin-top:16px; opacity:{{ nextOp }}; transition:opacity .4s ease;">
+          <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:600; font-size:clamp(2.2rem,6vw,4.4rem); line-height:0.98; letter-spacing:-0.03em; color:#FFFFFF; margin:0;">{{ nextTitle }}</h2>
+          <span aria-hidden="true" style="font-family:'Bricolage Grotesque',sans-serif; font-weight:400; font-size:clamp(2rem,4vw,3rem); color:#FFFFFF; line-height:1;">&rarr;</span>
+        </div>
+      </a>
+
+      <div data-reveal style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1); text-align:center; margin-top:clamp(80px,12vw,160px);">
+        <span style="font-family:'Bricolage Grotesque',sans-serif; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.55);">Start a project</span>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:500; font-size:clamp(2.4rem,6.4vw,5rem); line-height:1.0; letter-spacing:-0.03em; color:#FFFFFF; margin:20px auto 0; max-width:18ch; text-wrap:balance;">Bring us a brief with a truth in it.</h2>
+        <div style="margin-top:clamp(36px,4vw,52px);">
+          <a href="Contact.dc.html" data-cut style="display:inline-block; font-family:'Bricolage Grotesque',sans-serif; font-size:13px; letter-spacing:0.22em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.3); padding:19px 38px; transition:background .4s ease, color .4s ease, border-color .4s ease;" style-hover="background:#FFFFFF; color:#000000; border-color:#FFFFFF;">Start a project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { c: null, nx: null, nextHov: false };
+
+  componentDidMount() {
+    import(new URL("./content.js", document.baseURI).href)
+      .then((m) => {
+        const get = m.getCase || (m.default && m.default.getCase);
+        const next = m.nextCase || (m.default && m.default.nextCase);
+        let slug = null;
+        try {
+          slug = new URLSearchParams(window.location.search).get("slug");
+        } catch (e) {}
+        const c = get ? get(slug) : null;
+        const nx = c && next ? next(c.slug) : null;
+        this.setState({ c, nx });
+        if (c && c.title) document.title = c.title + " — Cossé TTL";
+      })
+      .catch((e) => console.warn("content load failed", e));
+
+    this._reduced =
+      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    setTimeout(() => {
+      document.querySelectorAll("[data-hero]").forEach((el) => this._reveal(el));
+    }, 60);
+
+    if (this._reduced) {
+      document.querySelectorAll("[data-reveal]").forEach((el) => this._reveal(el));
+    } else {
+      try {
+        this._io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((en) => {
+              if (en.isIntersecting) {
+                this._reveal(en.target);
+                this._io.unobserve(en.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -7% 0px" }
+        );
+        this._scan = () =>
+          document.querySelectorAll("[data-reveal]").forEach((el) => {
+            if (!el.dataset.obs) {
+              el.dataset.obs = "1";
+              this._io.observe(el);
+            }
+          });
+        this._scan();
+      } catch (e) {
+        document.querySelectorAll("[data-reveal]").forEach((el) => this._reveal(el));
+      }
+    }
+
+    this._allFailsafe = setTimeout(() => {
+      document.querySelectorAll("[data-reveal]").forEach((el) => this._reveal(el));
+    }, 2500);
+
+    if (!this._reduced) this._initLenis(0);
+
+    this._onAnchorClick = (e) => {
+      const a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const id = a.getAttribute("href").slice(1);
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      this._scrollToEl(el);
+      if (history.replaceState) history.replaceState(null, "", "#" + id);
+    };
+    document.addEventListener("click", this._onAnchorClick);
+  }
+
+  _reveal(el) {
+    if (el.dataset.shown) return;
+    el.dataset.shown = "1";
+    const d = parseInt(el.dataset.d || "0", 10);
+    const rest = el.dataset.tf || "none";
+    if (this._reduced) {
+      el.style.transition = "none";
+      el.style.opacity = "1";
+      el.style.transform = rest;
+      if (el.dataset.wght) el.style.fontVariationSettings = "'wght' " + el.dataset.wght;
+      return;
+    }
+    el.style.transitionDelay = d + "ms";
+    el.style.opacity = "1";
+    el.style.transform = rest;
+      if (el.dataset.wght) el.style.fontVariationSettings = "'wght' " + el.dataset.wght;
+    setTimeout(() => {
+      if (!el.isConnected) return;
+      el.style.transition = "none";
+      el.style.transitionDelay = "0ms";
+      el.style.opacity = "1";
+      el.style.transform = rest;
+      if (el.dataset.wght) el.style.fontVariationSettings = "'wght' " + el.dataset.wght;
+    }, d + 1000);
+  }
+
+  _scrollToEl(el) {
+    const y = el.getBoundingClientRect().top + window.scrollY - 40;
+    if (this._lenis) this._lenis.scrollTo(y, { duration: 1.1 });
+    else window.scrollTo({ top: y, behavior: this._reduced ? "auto" : "smooth" });
+  }
+
+  _initLenis(tries) {
+    if (window.Lenis) {
+      try {
+        this._lenis = new window.Lenis({ lerp: 0.09, wheelMultiplier: 1.0, smoothWheel: true });
+        const raf = (t) => {
+          if (!this._lenis) return;
+          this._lenis.raf(t);
+          this._raf = requestAnimationFrame(raf);
+        };
+        this._raf = requestAnimationFrame(raf);
+      } catch (e) {}
+      return;
+    }
+    if (tries < 25) setTimeout(() => this._initLenis(tries + 1), 120);
+  }
+
+  componentDidUpdate() {
+    if (this._scan && !this._reduced) this._scan();
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("click", this._onAnchorClick);
+    if (this._io) this._io.disconnect();
+    if (this._allFailsafe) clearTimeout(this._allFailsafe);
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._lenis) {
+      try {
+        this._lenis.destroy();
+      } catch (e) {}
+      this._lenis = null;
+    }
+  }
+
+  renderVals() {
+    const c = this.state.c;
+    const nx = this.state.nx;
+    const sp = c && c.spine ? c.spine : {};
+    const pad2 = (n) => String(n).padStart(2, "0");
+    const execution = (sp.execution || []).map((x, i) => ({ ...x, idx: pad2(i + 1), d: 0 }));
+    const impact = (sp.impact || []).map((x, i) => ({ ...x, d: i * 80 }));
+    return {
+      title: c ? c.title : "",
+      client: c ? c.client : "",
+      year: c ? c.year : "",
+      keyword: c ? c.keyword : "",
+      idea: c ? c.idea : "",
+      ideaFull: sp.idea || "",
+      primaryTag: c ? (c.tags && c.tags[0]) || c.discipline : "",
+      challenge: sp.challenge || "",
+      truth: sp.truth || "",
+      execution,
+      channels: sp.channels || [],
+      impact,
+      legacy: sp.legacy || "",
+      credits: c
+        ? [
+            { tc: "00:01", label: "Agency · Cossé TTL" },
+            { tc: "00:09", label: "Client · " + c.client },
+            { tc: "00:18", label: "Year · " + c.year },
+            { tc: "00:27", label: "Direction · placeholder" },
+          ]
+        : [],
+      nextTitle: nx ? nx.title : "",
+      nextHref: nx ? "Case Study.dc.html?slug=" + nx.slug : "Work.dc.html",
+      nextOp: this.state.nextHov ? 0.55 : 1,
+      onNextEnter: () => this.setState({ nextHov: true }),
+      onNextLeave: () => this.setState({ nextHov: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>

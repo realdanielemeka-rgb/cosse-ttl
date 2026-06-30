@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thinking — Cossé TTL</title>
+<meta name="description" content="Points of view on culture, strategy, media and craft from Cossé TTL.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23000%22%2F%3E%3Cline%20x1%3D%2211%22%20y1%3D%2222%22%20x2%3D%2221%22%20y2%3D%2210%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223.4%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cossé TTL">
+<meta property="og:title" content="Thinking — Cossé TTL">
+<meta property="og:description" content="Points of view on culture, strategy, media and craft from Cossé TTL.">
+<meta property="og:image" content="og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://www.youtube-nocookie.com">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{background:#000000; color:#FFFFFF; font-family:'Bricolage Grotesque',sans-serif; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden;}
+    ::selection{background:#FFFFFF; color:#000000;}
+    a{text-decoration:none} a:link,a:visited{color:inherit}
+    a:focus-visible, button:focus-visible{outline:1px solid #FFFFFF; outline-offset:4px;}
+    ::-webkit-scrollbar{width:8px;height:8px} ::-webkit-scrollbar-track{background:#000} ::-webkit-scrollbar-thumb{background:#222} ::-webkit-scrollbar-thumb:hover{background:#333}
+    html{scrollbar-width:thin; scrollbar-color:#222 #000}
+    @media (prefers-reduced-motion: reduce){*{animation:none !important}}
+  </style>
+  <noscript><style>[data-reveal]{opacity:1 !important; transform:none !important}</style></noscript>
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+</helmet>
+
+<div style="position:fixed; inset:0; z-index:50; pointer-events:none;">
+  <dc-import name="CornerNav" style="position:absolute; inset:0; pointer-events:none;" hint-size="100%,100%"></dc-import>
+</div>
+
+<main style="background:#000000;">
+
+  <!-- HERO -->
+  <header data-screen-label="Thinking hero" style="background:#000000; padding:clamp(132px,18vh,220px) clamp(20px,5vw,60px) clamp(40px,5vw,64px);">
+    <div style="max-width:1320px; margin:0 auto;">
+      <p data-reveal style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1); font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.55); margin:0;">Thinking</p>
+      <h1 data-reveal data-d="120" data-wght="680" style="opacity:0; transform:translateY(16px); transition:opacity .9s cubic-bezier(0.16,1,0.3,1), transform .9s cubic-bezier(0.16,1,0.3,1), font-variation-settings .9s cubic-bezier(0.16,1,0.3,1); font-variation-settings:'wght' 340; font-weight:500; font-size:clamp(2.6rem,6.4vw,5.2rem); line-height:1.0; letter-spacing:-0.03em; color:#FFFFFF; margin:20px 0 0; max-width:18ch; margin-left:-0.04em;">Points of view, sharply held.</h1>
+      <p data-reveal data-d="260" style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1); font-size:clamp(1.1rem,1.8vw,1.5rem); line-height:1.45; color:rgba(255,255,255,0.6); margin:26px 0 0; max-width:50ch;">How we read culture, markets and craft. Challenger thinking, written down.</p>
+    </div>
+  </header>
+
+  <!-- FEATURED -->
+  <section data-screen-label="Featured" style="background:#000000; padding:clamp(24px,3vw,40px) clamp(20px,5vw,60px) clamp(20px,3vw,36px);">
+    <sc-if value="{{ featured }}" hint-placeholder-val="{{ false }}">
+      <div data-reveal style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1); max-width:1320px; margin:0 auto;">
+        <article style="position:relative; overflow:hidden; background:#0A0A0A; border:1px solid rgba(255,255,255,0.12); padding:clamp(32px,5vw,72px); display:flex; flex-direction:column; min-height:clamp(320px,38vw,460px); justify-content:flex-end;">
+          <span aria-hidden="true" style="position:absolute; top:-4%; right:clamp(10px,3vw,48px); font-weight:700; font-size:clamp(8rem,22vw,18rem); line-height:0.8; color:rgba(255,255,255,0.035); letter-spacing:-0.05em; pointer-events:none;">01</span>
+          <div aria-hidden="true" style="position:absolute; inset:0; background-image:url(grain.png); background-size:220px; opacity:0.4; mix-blend-mode:overlay; pointer-events:none;"></div>
+          <span style="position:absolute; top:clamp(24px,3vw,40px); left:clamp(32px,5vw,72px); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.5);">Featured &middot; {{ featured.kicker }}</span>
+          <div style="position:relative; max-width:760px;">
+            <h2 style="font-weight:600; font-size:clamp(2rem,4.6vw,3.6rem); line-height:1.04; letter-spacing:-0.025em; color:#FFFFFF; margin:0;">{{ featured.title }}</h2>
+            <p style="font-size:clamp(1.05rem,1.6vw,1.3rem); line-height:1.5; color:rgba(255,255,255,0.65); margin:18px 0 0; max-width:56ch;">{{ featured.dek }}</p>
+            <span style="display:block; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:24px;">{{ featured.author }} &middot; {{ featured.meta }}</span>
+          </div>
+        </article>
+      </div>
+    </sc-if>
+  </section>
+
+  <!-- INDEX -->
+  <section data-screen-label="Index" style="background:#000000; padding:clamp(20px,3vw,36px) clamp(20px,5vw,60px) clamp(60px,8vw,110px);">
+    <div style="max-width:1320px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.12);">
+      <sc-for list="{{ rest }}" as="a" hint-placeholder-count="5">
+        <article data-reveal data-d="{{ a.d }}" style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1); background:#000000; padding:clamp(28px,3vw,42px); display:flex; flex-direction:column; min-height:clamp(240px,24vw,300px);">
+          <span style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.4);">{{ a.kicker }}</span>
+          <h3 style="font-weight:500; font-size:clamp(1.4rem,2.1vw,1.85rem); line-height:1.12; letter-spacing:-0.015em; color:#FFFFFF; margin:18px 0 0;">{{ a.title }}</h3>
+          <p style="font-size:0.98rem; line-height:1.5; color:rgba(255,255,255,0.55); margin:14px 0 0;">{{ a.dek }}</p>
+          <span style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:auto; padding-top:22px;">{{ a.author }} &middot; {{ a.meta }}</span>
+        </article>
+      </sc-for>
+    </div>
+    <p data-reveal style="opacity:0; transform:translateY(16px); transition:opacity .8s cubic-bezier(0.16,1,0.3,1), transform .8s cubic-bezier(0.16,1,0.3,1); max-width:1320px; margin:clamp(28px,3vw,40px) auto 0; font-size:0.92rem; letter-spacing:0.02em; color:rgba(255,255,255,0.4);">Full essays are placeholders in this prototype &mdash; real articles and author pages slot in at production.</p>
+  </section>
+
+  <dc-import name="StartBand" kicker="Work with us" title="Like how we think? Let's apply it." sub="The point of view is free. Putting it to work on your business is the fun part." hint-size="100%,560px"></dc-import>
+
+</main>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { content: null, w: 1280 };
+  componentDidMount() {
+    import(new URL("./content.js", document.baseURI).href).then((m) => this.setState({ content: m.default || m })).catch((e) => console.warn("content load failed", e));
+    this.setState({ w: window.innerWidth });
+    this._onResize = () => { if (window.innerWidth !== this.state.w) this.setState({ w: window.innerWidth }); };
+    window.addEventListener("resize", this._onResize);
+    this._reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (this._reduced) document.querySelectorAll("[data-reveal]").forEach((el) => this._reveal(el));
+    else {
+      try {
+        this._io = new IntersectionObserver((es) => { es.forEach((en) => { if (en.isIntersecting) { this._reveal(en.target); this._io.unobserve(en.target); } }); }, { threshold: 0.1, rootMargin: "0px 0px -7% 0px" });
+        this._scan = () => document.querySelectorAll("[data-reveal]").forEach((el) => { if (!el.dataset.obs) { el.dataset.obs = "1"; this._io.observe(el); } });
+        this._scan();
+      } catch (e) { document.querySelectorAll("[data-reveal]").forEach((el) => this._reveal(el)); }
+    }
+    this._failsafe = setTimeout(() => document.querySelectorAll("[data-reveal]").forEach((el) => this._reveal(el)), 2500);
+    if (!this._reduced) this._initLenis(0);
+  }
+  _reveal(el) {
+    if (el.dataset.shown) return; el.dataset.shown = "1";
+    const d = parseInt(el.dataset.d || "0", 10); const rest = el.dataset.tf || "none";
+    if (this._reduced) { el.style.transition = "none"; el.style.opacity = "1"; el.style.transform = rest; if (el.dataset.wght) el.style.fontVariationSettings = "'wght' " + el.dataset.wght; return; }
+    el.style.transitionDelay = d + "ms"; el.style.opacity = "1"; el.style.transform = rest; if (el.dataset.wght) el.style.fontVariationSettings = "'wght' " + el.dataset.wght;
+    setTimeout(() => { if (!el.isConnected) return; el.style.transition = "none"; el.style.transitionDelay = "0ms"; el.style.opacity = "1"; el.style.transform = rest; }, d + 1000);
+  }
+  _initLenis(t) {
+    if (window.Lenis) { try { this._lenis = new window.Lenis({ lerp: 0.09, wheelMultiplier: 1.0, smoothWheel: true }); const raf = (x) => { if (!this._lenis) return; this._lenis.raf(x); this._raf = requestAnimationFrame(raf); }; this._raf = requestAnimationFrame(raf); } catch (e) {} return; }
+    if (t < 25) setTimeout(() => this._initLenis(t + 1), 120);
+  }
+  componentDidUpdate() { if (this._scan && !this._reduced) this._scan(); }
+  componentWillUnmount() { window.removeEventListener("resize", this._onResize); if (this._io) this._io.disconnect(); if (this._failsafe) clearTimeout(this._failsafe); if (this._raf) cancelAnimationFrame(this._raf); if (this._lenis) { try { this._lenis.destroy(); } catch (e) {} this._lenis = null; } }
+  renderVals() {
+    const c = this.state.content;
+    const arts = (c && c.thinking ? c.thinking : []).map((x) => ({ ...x, meta: x.date + " · " + x.read }));
+    return { featured: arts[0] || null, rest: arts.slice(1).map((x, i) => ({ ...x, d: (i % 3) * 80 })) };
+  }
+}
+</script>
+</body>
+</html>

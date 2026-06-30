@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<section id="start" data-screen-label="Start a project" style="position:relative; overflow:hidden; background:#0A0A0A; border-top:1px solid rgba(255,255,255,0.12); padding:clamp(96px,15vh,200px) clamp(20px,5vw,60px); text-align:center; font-family:'Bricolage Grotesque',sans-serif;">
+  <div aria-hidden="true" style="position:absolute; inset:0; background-image:url(grain.png); background-size:220px; opacity:0.35; mix-blend-mode:overlay; pointer-events:none;"></div>
+  <div aria-hidden="true" style="position:absolute; inset:0; background:radial-gradient(circle at 50% 60%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%); pointer-events:none;"></div>
+  <div style="position:relative; max-width:1000px; margin:0 auto;">
+    <span style="display:inline-flex; align-items:center; gap:9px; font-size:12px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.55);">
+      <span aria-hidden="true" style="display:inline-block; width:11px; height:11px; color:#FFFFFF;"><svg viewBox="0 0 12 12" fill="none" style="width:100%;height:100%;display:block"><line x1="3" y1="9" x2="9" y2="3" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></line></svg></span>
+      {{ kicker }}
+    </span>
+    <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:500; font-size:clamp(2.6rem,7vw,5.4rem); line-height:1.0; letter-spacing:-0.03em; color:#FFFFFF; margin:22px 0 0; text-wrap:balance;">{{ title }}</h2>
+    <p style="font-family:'Bricolage Grotesque',sans-serif; font-size:clamp(1.05rem,1.7vw,1.3rem); line-height:1.5; color:rgba(255,255,255,0.6); margin:22px auto 0; max-width:48ch;">{{ sub }}</p>
+    <div style="display:flex; flex-wrap:wrap; gap:14px 18px; justify-content:center; margin-top:clamp(36px,4vw,52px);">
+      <a href="Contact.dc.html" data-cut style="display:inline-block; font-family:'Bricolage Grotesque',sans-serif; font-size:13px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#000000; background:#FFFFFF; padding:19px 38px; text-decoration:none; transition:opacity .3s ease;" style-hover="opacity:0.85;">Start a project</a>
+      <a href="Work.dc.html" data-cut style="display:inline-flex; align-items:center; gap:10px; font-family:'Bricolage Grotesque',sans-serif; font-size:13px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#FFFFFF; border:1px solid rgba(255,255,255,0.3); padding:19px 32px; text-decoration:none; transition:border-color .3s ease;" style-hover="border-color:#FFFFFF;">See the work</a>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 1280, &quot;height&quot;: 560 },
+  &quot;kicker&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Start a project&quot;, &quot;tsType&quot;: &quot;string&quot; },
+  &quot;title&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Let’s find the truth in it.&quot;, &quot;tsType&quot;: &quot;string&quot; },
+  &quot;sub&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;You bring the business problem. We’ll find the simple human truth inside it — and build the total brand experience around it.&quot;, &quot;tsType&quot;: &quot;string&quot; }
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props || {};
+    return {
+      kicker: p.kicker || "Start a project",
+      title: p.title || "Let’s find the truth in it.",
+      sub: p.sub || "You bring the business problem. We’ll find the simple human truth inside it — and build the total brand experience around it.",
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="base_2679" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgb(27,27,27)"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <radialGradient id="vignette_2679" cx="50%" cy="46%" r="85%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#000000" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.6"/>
+    </radialGradient>
+    <linearGradient id="sheen_2679" x1="0%" y1="0%" x2="85%" y2="15%">
+      <stop offset="0%" stop-color="#FFF6E8" stop-opacity="0.1"/>
+      <stop offset="45%" stop-color="#FFF6E8" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#FFF6E8" stop-opacity="0.14"/>
+    </linearGradient>
+    <filter id="grain_2679">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="2679" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0"/>
+    </filter>
+    <filter id="b2679_0" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="0.131"/></filter>
+    <filter id="b2679_1" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="1.548"/></filter>
+    <filter id="b2679_2" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="1.239"/></filter>
+    <filter id="b2679_3" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="2.051"/></filter>
+  </defs>
+  <rect width="1280" height="720" fill="url(#base_2679)"/>
+  <g transform="translate(383.0,493.2) rotate(199.9) scale(56.12)" filter="url(#b2679_0)" opacity="0.428">
+      <line x1="3" y1="9" x2="9" y2="3" stroke="#FFF6E8" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+  <g transform="translate(658.4,166.3) rotate(8.0) scale(32.39)" filter="url(#b2679_1)" opacity="0.221">
+      <line x1="3" y1="9" x2="9" y2="3" stroke="#FFF6E8" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+  <g transform="translate(495.1,215.2) rotate(82.9) scale(42.18)" filter="url(#b2679_2)" opacity="0.236">
+      <line x1="3" y1="9" x2="9" y2="3" stroke="#FFF6E8" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+  <g transform="translate(525.5,459.3) rotate(73.7) scale(28.24)" filter="url(#b2679_3)" opacity="0.164">
+      <line x1="3" y1="9" x2="9" y2="3" stroke="#FFF6E8" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+  <rect width="1280" height="720" fill="url(#sheen_2679)"/>
+  <rect width="1280" height="720" fill="url(#vignette_2679)"/>
+  <rect x="28" y="28" width="1224" height="664" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <rect width="1280" height="720" filter="url(#grain_2679)" opacity="0.5"/>
+  
+</svg>

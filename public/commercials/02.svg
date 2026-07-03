@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="base_1037" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgb(28,28,28)"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <radialGradient id="vignette_1037" cx="50%" cy="46%" r="85%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#000000" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.6"/>
+    </radialGradient>
+    <linearGradient id="sheen_1037" x1="0%" y1="0%" x2="43%" y2="0%">
+      <stop offset="0%" stop-color="#FFF6E8" stop-opacity="0.1"/>
+      <stop offset="45%" stop-color="#FFF6E8" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#FFF6E8" stop-opacity="0.14"/>
+    </linearGradient>
+    <filter id="grain_1037">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="1037" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0"/>
+    </filter>
+    <filter id="b1037_0" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="0.135"/></filter>
+    <filter id="b1037_1" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="1.135"/></filter>
+    <filter id="b1037_2" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="0.909"/></filter>
+  </defs>
+  <rect width="1280" height="720" fill="url(#base_1037)"/>
+  <g transform="translate(846.0,528.7) rotate(74.4) scale(79.58)" filter="url(#b1037_0)" opacity="0.531">
+      <line x1="3" y1="9" x2="9" y2="3" stroke="#FFF6E8" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+  <g transform="translate(947.4,112.4) rotate(346.1) scale(31.25)" filter="url(#b1037_1)" opacity="0.234">
+      <line x1="3" y1="9" x2="9" y2="3" stroke="#FFF6E8" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+  <g transform="translate(916.9,134.2) rotate(327.8) scale(44.19)" filter="url(#b1037_2)" opacity="0.147">
+      <line x1="3" y1="9" x2="9" y2="3" stroke="#FFF6E8" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+  <rect width="1280" height="720" fill="url(#sheen_1037)"/>
+  <rect width="1280" height="720" fill="url(#vignette_1037)"/>
+  <rect x="28" y="28" width="1224" height="664" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <rect width="1280" height="720" filter="url(#grain_1037)" opacity="0.5"/>
+  <text x="40" y="684" font-family="monospace" font-size="15" letter-spacing="2" fill="rgba(255,255,255,0.22)">COMMERCIAL 02</text>
+</svg>

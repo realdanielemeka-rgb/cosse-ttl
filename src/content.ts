@@ -292,18 +292,22 @@ export interface Commercial {
 // TV commercials — provision for 8 slots on the Work archive (4 shown, 4
 // behind Load More). No real films/titles/clients have been supplied yet —
 // per the content-integrity policy, nothing here is invented; every entry
-// renders as a clearly-labelled placeholder tile until real data lands.
+// still renders through <Placeholder> (videoId stays null) until real data
+// lands. `poster` points at generated, abstract, on-brand art (scripts/
+// gen-placeholder-art.mjs) — visual filler only, not a claim of realness.
 export const commercials: Commercial[] = Array.from({ length: 8 }, (_, i) => ({
   slot: "Commercial " + String(i + 1).padStart(2, "0"),
   title: null,
   client: "Client TBC",
   videoId: null,
-  poster: null,
+  poster: `/commercials/${String(i + 1).padStart(2, "0")}.svg`,
 }));
 
 export interface ExecutionBlock {
   label: string;
   caption: string;
+  /** Generated, abstract, on-brand still — visual filler, not real campaign photography. */
+  image?: string;
 }
 export interface ImpactStat {
   stat: string;
@@ -352,9 +356,9 @@ export const cases: CaseStudy[] = [
         "The first time real money reaches your own hands, in your own town, something shifts. You are counted.",
       idea: "Make every agent a doorway, not a device. Your money. Your town. Your hands.",
       execution: [
-        { label: "Anthem film", caption: "One naira note's first journey home, North to coast." },
-        { label: "Agent murals", caption: "Hand-painted doorways at 4,000 agent points." },
-        { label: "Radio drama", caption: "A six-part serial in Hausa, aired at market hours." },
+        { label: "Anthem film", caption: "One naira note's first journey home, North to coast.", image: "/case-media/first-withdrawal-1.svg" },
+        { label: "Agent murals", caption: "Hand-painted doorways at 4,000 agent points.", image: "/case-media/first-withdrawal-2.svg" },
+        { label: "Radio drama", caption: "A six-part serial in Hausa, aired at market hours.", image: "/case-media/first-withdrawal-3.svg" },
       ],
       channels: ["Radio", "Out-of-home", "Agent activation", "Social", "Community"],
       impact: [
@@ -384,9 +388,9 @@ export const cases: CaseStudy[] = [
         "The hardest shift in Lagos starts at 5am and ends in the dark. Strength isn't a flavour note here — it's a way of life.",
       idea: "Brewed for the bend. A stout for people who take the hard road on purpose.",
       execution: [
-        { label: "Roadside reveals", caption: "Bars built at the city's toughest junctions, dusk to dawn." },
-        { label: "Driver portraits", caption: "A film series shot from inside the danfo at first light." },
-        { label: "Bottle etch", caption: "Routes, not slogans, embossed on the glass." },
+        { label: "Roadside reveals", caption: "Bars built at the city's toughest junctions, dusk to dawn.", image: "/case-media/brewed-for-the-bend-1.svg" },
+        { label: "Driver portraits", caption: "A film series shot from inside the danfo at first light.", image: "/case-media/brewed-for-the-bend-2.svg" },
+        { label: "Bottle etch", caption: "Routes, not slogans, embossed on the glass.", image: "/case-media/brewed-for-the-bend-3.svg" },
       ],
       channels: ["Experiential", "Out-of-home", "Social", "On-trade"],
       impact: [
@@ -416,9 +420,9 @@ export const cases: CaseStudy[] = [
         "Nobody buys data to use data. They buy it to chase something — a customer, a class, a way out.",
       idea: "Count me in. Bundles built around what people are working toward, not gigabytes.",
       execution: [
-        { label: "Hustle bundles", caption: "Plans named for the goal: the apprentice, the trader, the grad." },
-        { label: "Creator partners", caption: "Real side-hustles documented, week to week." },
-        { label: "USSD redesign", caption: "A menu that speaks plainly, in five languages." },
+        { label: "Hustle bundles", caption: "Plans named for the goal: the apprentice, the trader, the grad.", image: "/case-media/count-me-in-1.svg" },
+        { label: "Creator partners", caption: "Real side-hustles documented, week to week.", image: "/case-media/count-me-in-2.svg" },
+        { label: "USSD redesign", caption: "A menu that speaks plainly, in five languages.", image: "/case-media/count-me-in-3.svg" },
       ],
       channels: ["Mobile / USSD", "Social", "Influencer", "Radio"],
       impact: [
@@ -447,9 +451,9 @@ export const cases: CaseStudy[] = [
         "A farmer doesn't gamble on a season. They protect it. Trust is earned in harvests, not pitches.",
       idea: "The long season. We don't sell a good year — we help you survive the bad one.",
       execution: [
-        { label: "Field films", caption: "One cooperative, three seasons, no shortcuts." },
-        { label: "Market radio", caption: "Plain-spoken advice between the prices and the news." },
-        { label: "Agent toolkits", caption: "Flip-charts for low-literacy, high-trust conversations." },
+        { label: "Field films", caption: "One cooperative, three seasons, no shortcuts.", image: "/case-media/the-long-season-1.svg" },
+        { label: "Market radio", caption: "Plain-spoken advice between the prices and the news.", image: "/case-media/the-long-season-2.svg" },
+        { label: "Agent toolkits", caption: "Flip-charts for low-literacy, high-trust conversations.", image: "/case-media/the-long-season-3.svg" },
       ],
       channels: ["Radio", "Field activation", "Cooperative networks", "SMS"],
       impact: [
@@ -478,9 +482,9 @@ export const cases: CaseStudy[] = [
         "A mother doesn't distrust the vaccine. She distrusts being forgotten the day after the queue.",
       idea: "Show up. A promise from the system to the street, kept in both directions.",
       execution: [
-        { label: "Street pledges", caption: "Health workers and parents signing the same wall." },
-        { label: "Follow-up by name", caption: "Reminders that used the child's name, not a case number." },
-        { label: "Local heroes", caption: "Community champions fronting the campaign, ward by ward." },
+        { label: "Street pledges", caption: "Health workers and parents signing the same wall.", image: "/case-media/show-up-1.svg" },
+        { label: "Follow-up by name", caption: "Reminders that used the child's name, not a case number.", image: "/case-media/show-up-2.svg" },
+        { label: "Local heroes", caption: "Community champions fronting the campaign, ward by ward.", image: "/case-media/show-up-3.svg" },
       ],
       channels: ["Community activation", "Radio", "Social", "Out-of-home"],
       impact: [
@@ -509,9 +513,9 @@ export const cases: CaseStudy[] = [
         "Money sent home is never just money. It's presence — a way of being in the room from five thousand miles away.",
       idea: "Homecoming. Every transfer is an arrival.",
       execution: [
-        { label: "Anthem film", caption: "A daughter abroad, a Sunday table in Enugu, one transfer between them." },
-        { label: "Diaspora portraits", caption: "Documentary shorts across London, Houston and Toronto." },
-        { label: "Arrival sound", caption: "A sonic signature played the moment money lands." },
+        { label: "Anthem film", caption: "A daughter abroad, a Sunday table in Enugu, one transfer between them.", image: "/case-media/homecoming-1.svg" },
+        { label: "Diaspora portraits", caption: "Documentary shorts across London, Houston and Toronto.", image: "/case-media/homecoming-2.svg" },
+        { label: "Arrival sound", caption: "A sonic signature played the moment money lands.", image: "/case-media/homecoming-3.svg" },
       ],
       channels: ["Film", "Social", "Diaspora media", "App"],
       impact: [
@@ -540,9 +544,9 @@ export const cases: CaseStudy[] = [
         "The best beauty advice most women ever got came from their grandmother, not a brand.",
       idea: "Heirloom, not commodity. The recipe your grandmother trusted, made worthy of your shelf.",
       execution: [
-        { label: "Recipe films", caption: "Three generations, one bar, told in close-up." },
-        { label: "Packaging redesign", caption: "Object you'd display, not hide." },
-        { label: "Creator rituals", caption: "Morning routines, no filters, real skin." },
+        { label: "Recipe films", caption: "Three generations, one bar, told in close-up.", image: "/case-media/dudu-1.svg" },
+        { label: "Packaging redesign", caption: "Object you'd display, not hide.", image: "/case-media/dudu-2.svg" },
+        { label: "Creator rituals", caption: "Morning routines, no filters, real skin.", image: "/case-media/dudu-3.svg" },
       ],
       channels: ["Social", "Retail", "Influencer", "Experiential"],
       impact: [
@@ -571,9 +575,9 @@ export const cases: CaseStudy[] = [
         "Culture doesn't want a sponsor. It wants someone to hand it the mic and step back.",
       idea: "Lagos Loud. Don't sponsor the stage — be the reason it exists.",
       execution: [
-        { label: "The stage", caption: "A free, brand-built platform for unsigned acts across four cities." },
-        { label: "Live films", caption: "Performances captured and released within the hour." },
-        { label: "Open call", caption: "Anyone could apply by voice note." },
+        { label: "The stage", caption: "A free, brand-built platform for unsigned acts across four cities.", image: "/case-media/lagos-loud-1.svg" },
+        { label: "Live films", caption: "Performances captured and released within the hour.", image: "/case-media/lagos-loud-2.svg" },
+        { label: "Open call", caption: "Anyone could apply by voice note.", image: "/case-media/lagos-loud-3.svg" },
       ],
       channels: ["Experiential", "Social", "Music platforms", "Out-of-home"],
       impact: [
@@ -602,9 +606,9 @@ export const cases: CaseStudy[] = [
         "Everyone admires the gamble. Nobody tells you that staying the course is the harder, braver thing.",
       idea: "Hold steady. Patience is not the safe choice. It's the bold one.",
       execution: [
-        { label: "Manifesto film", caption: "The quiet discipline behind every overnight success." },
-        { label: "Founder series", caption: "Builders who held on when it was unfashionable." },
-        { label: "Calculator, reframed", caption: "A tool that shows courage compounding, not just naira." },
+        { label: "Manifesto film", caption: "The quiet discipline behind every overnight success.", image: "/case-media/hold-steady-1.svg" },
+        { label: "Founder series", caption: "Builders who held on when it was unfashionable.", image: "/case-media/hold-steady-2.svg" },
+        { label: "Calculator, reframed", caption: "A tool that shows courage compounding, not just naira.", image: "/case-media/hold-steady-3.svg" },
       ],
       channels: ["Social", "Digital", "Podcast", "Out-of-home"],
       impact: [

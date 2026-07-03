@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="base_1074" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgb(21,21,21)"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <radialGradient id="vignette_1074" cx="50%" cy="46%" r="85%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#000000" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.6"/>
+    </radialGradient>
+    <linearGradient id="sheen_1074" x1="0%" y1="0%" x2="92%" y2="77%">
+      <stop offset="0%" stop-color="#FFF6E8" stop-opacity="0.1"/>
+      <stop offset="45%" stop-color="#FFF6E8" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#FFF6E8" stop-opacity="0.14"/>
+    </linearGradient>
+    <filter id="grain_1074">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="1074" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0"/>
+    </filter>
+    <filter id="b1074_0" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="0.085"/></filter>
+    <filter id="b1074_1" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="0.678"/></filter>
+    <filter id="b1074_2" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="1.023"/></filter>
+    <filter id="b1074_3" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="2.277"/></filter>
+  </defs>
+  <rect width="1280" height="720" fill="url(#base_1074)"/>
+  <g transform="translate(943.3,348.1) rotate(220.1) scale(56.12)" filter="url(#b1074_0)" opacity="0.584">
+      <line x1="3" y1="9" x2="9" y2="3" stroke="#FFF6E8" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+  <g transform="translate(223.8,488.4) rotate(326.3) scale(45.06)" filter="url(#b1074_1)" opacity="0.183">
+      <line x1="3" y1="9" x2="9" y2="3" stroke="#FFF6E8" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+  <g transform="translate(981.9,236.9) rotate(231.0) scale(50.18)" filter="url(#b1074_2)" opacity="0.234">
+      <line x1="3" y1="9" x2="9" y2="3" stroke="#FFF6E8" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+  <g transform="translate(544.5,240.4) rotate(55.6) scale(22.18)" filter="url(#b1074_3)" opacity="0.164">
+      <line x1="3" y1="9" x2="9" y2="3" stroke="#FFF6E8" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+  <rect width="1280" height="720" fill="url(#sheen_1074)"/>
+  <rect width="1280" height="720" fill="url(#vignette_1074)"/>
+  <rect x="28" y="28" width="1224" height="664" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <rect width="1280" height="720" filter="url(#grain_1074)" opacity="0.5"/>
+  <text x="40" y="684" font-family="monospace" font-size="15" letter-spacing="2" fill="rgba(255,255,255,0.22)">COMMERCIAL 03</text>
+</svg>

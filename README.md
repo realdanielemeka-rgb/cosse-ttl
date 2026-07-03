@@ -55,6 +55,18 @@ Nothing on this site is invented to look finished. Two copy tiers coexist:
   content, and a tracked micro-caption reading `PLACEHOLDER — CLIENT TO
   SUPPLY`. Nothing is dressed up as final.
 
+The 8 TV-commercial cards and the 9 case studies' "What we made" tiles carry
+**generated placeholder art** (`scripts/gen-placeholder-art.mjs` →
+`public/commercials/`, `public/case-media/`) so the site presents well to
+stakeholders before real footage exists. This is abstract, on-brand imagery
+only — the site's own Acute glyph, warm Lacquer sheen and grain, no stock
+photography and no photos of people — and it does not change what's
+labelled real vs. pending: the TV-commercial cards still show the
+`PLACEHOLDER` chip and caption regardless of the poster image, since that
+flag is driven by `videoId` (still `null`), not by the presence of art.
+Regenerate or extend the set with `node scripts/gen-placeholder-art.mjs`
+(deterministic — same seeds produce the same images).
+
 The 9 case studies are the one deliberate exception, carried over from the
 original brief: they're fictional-but-plausible narratives invented for the
 prototype (every metric already flagged `note: "placeholder"`). Per client
@@ -162,8 +174,10 @@ paper, so they stay plain per the "restraint over shine-everything" rule.
 2. **Our Philosophy** and **Our Values** copy (2–4 sentences each) — both
    currently render as flagged `<Placeholder>` blocks on Home.
 3. **TV commercial assets** — up to 8 films (title, client, a YouTube/Vimeo
-   ID, a poster still). `content.ts`'s `commercials` array has 8 typed slots
-   waiting; each renders as an explicit placeholder tile until filled.
+   ID, a real poster still). `content.ts`'s `commercials` array has 8 typed
+   slots waiting; each currently shows generated placeholder art (see
+   Content-integrity above) and will keep the `PLACEHOLDER` chip until a real
+   `videoId` is supplied.
 4. **Verified case-study results** to replace the placeholder-flagged metrics
    on the 9 existing narratives (or real case studies, if the fictional ones
    should be retired rather than kept dressed with real numbers).

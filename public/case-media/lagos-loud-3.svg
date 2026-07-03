@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="base_2713" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgb(27,27,27)"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <radialGradient id="vignette_2713" cx="50%" cy="46%" r="85%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#000000" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.6"/>
+    </radialGradient>
+    <linearGradient id="sheen_2713" x1="0%" y1="0%" x2="39%" y2="99%">
+      <stop offset="0%" stop-color="#FFF6E8" stop-opacity="0.1"/>
+      <stop offset="45%" stop-color="#FFF6E8" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#FFF6E8" stop-opacity="0.14"/>
+    </linearGradient>
+    <filter id="grain_2713">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="2713" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0"/>
+    </filter>
+    <filter id="b2713_0" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="0.137"/></filter>
+    <filter id="b2713_1" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="1.784"/></filter>
+    <filter id="b2713_2" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="0.767"/></filter>
+  </defs>
+  <rect width="1280" height="720" fill="url(#base_2713)"/>
+  <g transform="translate(631.0,463.4) rotate(55.1) scale(86.37)" filter="url(#b2713_0)" opacity="0.580">
+      <line x1="3" y1="9" x2="9" y2="3" stroke="#FFF6E8" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+  <g transform="translate(273.4,460.5) rotate(210.3) scale(23.92)" filter="url(#b2713_1)" opacity="0.227">
+      <line x1="3" y1="9" x2="9" y2="3" stroke="#FFF6E8" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+  <g transform="translate(873.6,387.9) rotate(345.7) scale(47.81)" filter="url(#b2713_2)" opacity="0.216">
+      <line x1="3" y1="9" x2="9" y2="3" stroke="#FFF6E8" stroke-width="0.9" stroke-linecap="round"/>
+    </g>
+  <rect width="1280" height="720" fill="url(#sheen_2713)"/>
+  <rect width="1280" height="720" fill="url(#vignette_2713)"/>
+  <rect x="28" y="28" width="1224" height="664" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <rect width="1280" height="720" filter="url(#grain_2713)" opacity="0.5"/>
+  
+</svg>

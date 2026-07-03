@@ -176,6 +176,214 @@ html {
   }
 }
 
+/*
+ * Swap-text nav hover — two stacked label copies inside an overflow-hidden
+ * mask; hovering the enclosing link/button slides the mask up one line so
+ * the label appears to swap rather than merely dim (seen on premium agency
+ * nav patterns). Purely decorative — the link's real text supplies the name.
+ */
+.swap-text-inner {
+  transition: transform 0.45s var(--ease-cine);
+}
+a:hover .swap-text-inner,
+button:hover .swap-text-inner {
+  transform: translateY(-1.2em);
+}
+@media (prefers-reduced-motion: reduce) {
+  .swap-text-inner {
+    transition: none;
+  }
+}
+
+/*
+ * Gloss / sheen system — a deliberate art-direction pass (client-requested)
+ * layered on top of the monochrome base: soft gradient fills, a light sweep
+ * on primary buttons, subtle glass highlights and lift on cards.
+ */
+.btn-sheen {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #ffffff 0%, #e4e4e4 100%);
+  transition: transform 0.35s var(--ease-cine), box-shadow 0.35s var(--ease-cine);
+}
+.btn-sheen::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -60%;
+  width: 45%;
+  height: 180%;
+  background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.95) 50%, transparent 100%);
+  filter: blur(4px);
+  transform: rotate(8deg);
+  transition: left 0.7s var(--ease-cine);
+  pointer-events: none;
+}
+.btn-sheen:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+.btn-sheen:hover::before {
+  left: 130%;
+}
+
+.btn-outline-glass {
+  position: relative;
+  transition: border-color 0.3s ease, background 0.35s ease, box-shadow 0.35s ease, transform 0.35s var(--ease-cine);
+}
+.btn-outline-glass:hover {
+  border-color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 1px 0 rgba(255, 255, 255, 0.12) inset;
+  transform: translateY(-1px);
+}
+
+/* A faint top-lit highlight at rest, as if the panel catches a soft light. */
+.card-sheen {
+  position: relative;
+}
+.card-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 42%);
+  pointer-events: none;
+}
+.card-lift {
+  transition: transform 0.4s var(--ease-cine), box-shadow 0.4s var(--ease-cine), background 0.4s var(--ease-cine);
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.5);
+  background: #0d0d0d;
+}
+
+/* A diagonal light sweep across media wells on hover — replaces the old flat
+   opacity-only hover with an actual reflected-light moment. */
+.media-sheen {
+  position: relative;
+}
+.media-sheen::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(120deg, transparent 32%, rgba(255, 255, 255, 0.12) 46%, transparent 60%);
+  transform: translateX(-130%);
+  transition: transform 0.9s var(--ease-cine);
+  pointer-events: none;
+  z-index: 2;
+}
+.media-sheen:hover::before {
+  transform: translateX(70%);
+}
+
+/* The acute "view" affordance — a bordered circle that inverts + rotates on
+   hover, replacing a plain arrow glyph with a real interactive moment. */
+.view-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1em;
+  height: 2.1em;
+  flex: 0 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transition: transform 0.4s var(--ease-cine), background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+a:hover .view-chip {
+  transform: rotate(45deg) scale(1.08);
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-sheen::before,
+  .media-sheen::before {
+    transition: none;
+  }
+  .btn-sheen:hover,
+  .btn-outline-glass:hover,
+  .card-lift:hover,
+  a:hover .view-chip {
+    transform: none;
+  }
+}
+
+/*
+ * AbstractField — the cover's generative backdrop (replaces real footage).
+ * Two large soft light blobs drift slowly; a sparse field of the acute glyph
+ * floats even slower. Transform/opacity only.
+ */
+.af-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  will-change: transform;
+}
+.af-blob-a {
+  width: 62vw;
+  height: 62vw;
+  top: -14%;
+  left: -12%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: afDriftA 28s ease-in-out infinite alternate;
+}
+.af-blob-b {
+  width: 50vw;
+  height: 50vw;
+  bottom: -16%;
+  right: -10%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: afDriftB 34s ease-in-out infinite alternate;
+}
+@keyframes afDriftA {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(6%, 5%) scale(1.1);
+  }
+}
+@keyframes afDriftB {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-5%, -6%) scale(1.12);
+  }
+}
+.af-mark {
+  color: #ffffff;
+  opacity: 0.1;
+  animation-name: afFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+@keyframes afFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(8deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .af-blob,
+  .af-mark {
+    animation: none !important;
+  }
+}
+
+/* A quiet highlight wash for browsable list rows (practices, method, roles). */
+.row-hover {
+  transition: background 0.35s ease;
+}
+.row-hover:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
 /* Reduced motion: stand everything down. */
 @media (prefers-reduced-motion: reduce) {
   * {

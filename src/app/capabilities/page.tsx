@@ -97,11 +97,12 @@ export default function CapabilitiesPage() {
           {caps.map((cap) => (
             <Reveal
               key={cap.num}
+              className="row-hover"
               style={{
                 display: "flex",
                 flexWrap: "wrap",
                 gap: "clamp(20px,4vw,64px)",
-                padding: "clamp(34px,4.5vw,64px) 0",
+                padding: "clamp(34px,4.5vw,64px) clamp(12px,1.4vw,20px)",
                 borderBottom: "1px solid rgba(255,255,255,0.12)",
               }}
             >
@@ -223,12 +224,13 @@ export default function CapabilitiesPage() {
             {method.map((step) => (
               <Reveal
                 key={step.n}
+                className="row-hover"
                 style={{
                   display: "flex",
                   flexWrap: "wrap",
                   alignItems: "baseline",
                   gap: "clamp(16px,3vw,48px)",
-                  padding: "clamp(22px,2.6vw,34px) 0",
+                  padding: "clamp(22px,2.6vw,34px) clamp(12px,1.4vw,20px)",
                   borderTop: "1px solid rgba(255,255,255,0.12)",
                 }}
               >

@@ -110,7 +110,7 @@ export default function StudioPage() {
             }}
           >
             {studio.ways.map((w) => (
-              <Reveal key={w.t} style={{ background: "#000000", padding: "clamp(28px,3vw,42px)" }}>
+              <Reveal key={w.t} className="card-sheen card-lift" style={{ background: "#000000", padding: "clamp(28px,3vw,42px)" }}>
                 <h3
                   style={{
                     fontWeight: 600,
@@ -313,7 +313,7 @@ export default function StudioPage() {
           <Link
             href="/careers"
             data-cut
-            className="hov-border"
+            className="btn-outline-glass"
             style={{
               display: "inline-flex",
               alignItems: "center",

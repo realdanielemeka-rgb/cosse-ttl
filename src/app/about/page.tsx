@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import Grain from "@/components/Grain";
 import StartBand from "@/components/StartBand";
 import Footer from "@/components/Footer";
-import { about, timeline, values, leadership, clients } from "@/content";
+import { about, timeline, values, ourValues, leadership, clients } from "@/content";
 
 export const metadata: Metadata = {
   title: "About",
@@ -98,6 +98,7 @@ export default function AboutPage() {
               gap: "clamp(20px,2.4vw,30px)",
             }}
           >
+            <span style={eyebrow}>{about.philosophyHeading}</span>
             {body.map((para) => (
               <p
                 key={para}
@@ -127,7 +128,7 @@ export default function AboutPage() {
             }}
           >
             {stats.map((s) => (
-              <div key={s.figure} style={{ background: "#000000", padding: "clamp(24px,2.6vw,34px)" }}>
+              <div key={s.figure} className="card-sheen" style={{ background: "#000000", padding: "clamp(24px,2.6vw,34px)" }}>
                 <div
                   style={{
                     fontWeight: 600,
@@ -252,7 +253,7 @@ export default function AboutPage() {
       >
         <div style={{ maxWidth: 1320, margin: "0 auto" }}>
           <Reveal style={{ marginBottom: "clamp(36px,5vw,56px)", maxWidth: 600 }}>
-            <span style={eyebrow}>The DNA</span>
+            <span style={eyebrow}>{about.dnaHeading}</span>
             <h2
               style={{
                 fontWeight: 500,
@@ -276,7 +277,7 @@ export default function AboutPage() {
             }}
           >
             {values.map((v) => (
-              <Reveal key={v.word} style={{ background: "#000000", padding: "clamp(28px,3vw,40px)" }}>
+              <Reveal key={v.word} className="card-sheen card-lift" style={{ background: "#000000", padding: "clamp(28px,3vw,40px)" }}>
                 <h3
                   style={{
                     fontWeight: 600,
@@ -302,6 +303,57 @@ export default function AboutPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* OUR VALUES — reserved section; copy pending from Cossé TTL */}
+      <section
+        style={{
+          background: "#0A0A0A",
+          padding: "clamp(60px,8vw,110px) clamp(20px,5vw,60px)",
+          borderTop: "1px solid rgba(255,255,255,0.12)",
+        }}
+      >
+        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
+          <Reveal
+            style={{
+              border: "1px dashed rgba(255,255,255,0.22)",
+              padding: "clamp(32px,4vw,48px)",
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "16px 32px",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+            }}
+          >
+            <div>
+              <span style={eyebrow}>{ourValues.heading}</span>
+              <h2
+                style={{
+                  fontWeight: 500,
+                  fontSize: "clamp(1.6rem,3vw,2.3rem)",
+                  lineHeight: 1.15,
+                  letterSpacing: "-0.02em",
+                  color: "rgba(255,255,255,0.55)",
+                  margin: "14px 0 0",
+                  maxWidth: "34ch",
+                }}
+              >
+                {ourValues.note}
+              </h2>
+            </div>
+            <span
+              style={{
+                fontSize: 11,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.35)",
+                whiteSpace: "nowrap",
+              }}
+            >
+              Placeholder section
+            </span>
+          </Reveal>
         </div>
       </section>
 
@@ -339,6 +391,7 @@ export default function AboutPage() {
             {team.map((p) => (
               <Reveal key={p.name}>
                 <div
+                  className="media-sheen"
                   style={{
                     position: "relative",
                     overflow: "hidden",
@@ -492,7 +545,7 @@ export default function AboutPage() {
           <Link
             href="/careers"
             data-cut
-            className="hov-border"
+            className="btn-outline-glass"
             style={{
               display: "inline-flex",
               alignItems: "center",

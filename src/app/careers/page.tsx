@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import Grain from "@/components/Grain";
+import SwapText from "@/components/SwapText";
 import Footer from "@/components/Footer";
 import { careers, contact } from "@/content";
 
@@ -104,7 +105,7 @@ export default function CareersPage() {
             }}
           >
             {careers.culture.map((c) => (
-              <Reveal key={c.t} style={{ background: "#000000", padding: "clamp(28px,3vw,42px)" }}>
+              <Reveal key={c.t} className="card-sheen card-lift" style={{ background: "#000000", padding: "clamp(28px,3vw,42px)" }}>
                 <h3
                   style={{
                     fontWeight: 600,
@@ -239,7 +240,7 @@ export default function CareersPage() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  Apply →
+                  <SwapText>Apply →</SwapText>
                 </span>
               </Reveal>
             ))}
@@ -285,7 +286,7 @@ export default function CareersPage() {
           <div style={{ marginTop: "clamp(34px,4vw,48px)" }}>
             <a
               href={openHref}
-              className="hov-soft"
+              className="btn-sheen"
               style={{
                 display: "inline-block",
                 fontSize: 13,
@@ -293,9 +294,7 @@ export default function CareersPage() {
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 color: "#000000",
-                background: "#FFFFFF",
                 padding: "19px 38px",
-                transition: "opacity .3s ease",
               }}
             >
               Email {careersEmail}

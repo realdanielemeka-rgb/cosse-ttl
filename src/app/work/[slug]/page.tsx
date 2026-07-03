@@ -275,6 +275,7 @@ export default async function CaseStudyPage({
               {sp.execution.map((ex, i) => (
                 <Reveal key={ex.label}>
                   <div
+                    className="media-sheen"
                     style={{
                       position: "relative",
                       overflow: "hidden",
@@ -425,6 +426,7 @@ export default async function CaseStudyPage({
                 <Reveal
                   key={m.label}
                   delay={i * 80}
+                  className="card-sheen card-lift"
                   style={{ background: "#0A0A0A", padding: "clamp(32px,4vw,52px) clamp(24px,2.4vw,36px)" }}
                 >
                   <div

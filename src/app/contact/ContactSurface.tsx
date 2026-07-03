@@ -220,7 +220,7 @@ export default function ContactSurface() {
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "18px 24px", marginTop: 6 }}>
                   <button
                     type="submit"
-                    className="hov-soft"
+                    className="btn-sheen"
                     style={{
                       fontFamily: "inherit",
                       fontSize: 13,
@@ -228,7 +228,6 @@ export default function ContactSurface() {
                       letterSpacing: "0.18em",
                       textTransform: "uppercase",
                       color: "#000000",
-                      background: "#FFFFFF",
                       border: "none",
                       padding: "18px 36px",
                       cursor: "pointer",
@@ -248,7 +247,7 @@ export default function ContactSurface() {
                 </div>
               </form>
             ) : (
-              <div style={{ border: "1px solid rgba(255,255,255,0.18)", background: "#0A0A0A", padding: "clamp(36px,5vw,64px)" }}>
+              <div className="card-sheen" style={{ border: "1px solid rgba(255,255,255,0.18)", background: "#0A0A0A", padding: "clamp(36px,5vw,64px)" }}>
                 <span aria-hidden="true" style={{ display: "inline-block", width: 26, height: 26, color: "#FFFFFF" }}>
                   <Acute />
                 </span>

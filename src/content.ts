@@ -9,6 +9,8 @@
 
 export interface Positioning {
   eyebrow: string;
+  /** The client's real opening statement — leads the Home positioning beat. */
+  openingStatement: string;
   manifesto: string;
   descriptor: string;
   lead: string;
@@ -20,6 +22,7 @@ export interface Positioning {
 
 export const positioning: Positioning = {
   eyebrow: "INTEGRATED MARKETING COMMUNICATIONS · LAGOS",
+  openingStatement: "Human beings are simple at heart and can be reached in simple ways.",
   manifesto: "We turn simple human truths into total brand experiences.",
   descriptor:
     "We turn simple human truths into brand experiences that move people, markets and culture.",
@@ -88,12 +91,17 @@ export const capabilities: Capability[] = [
 
 export interface AboutContent {
   lead: string;
+  /** Section heading for the body paragraphs below — "Our Philosophy". */
+  philosophyHeading: string;
   body: string[];
   stats: { figure: string; label: string }[];
+  /** Section heading for the `values` (DNA) grid below — "Our DNA". */
+  dnaHeading: string;
 }
 
 export const about: AboutContent = {
   lead: "Thirty years turning simple human truths into total brand experiences.",
+  philosophyHeading: "Our Philosophy",
   body: [
     "We started in Lagos in 1995 as Bates Cossé. Three decades later we still do one thing: find the simple human truth inside a business problem, and build a total brand experience around it.",
     "“TTL” used to mean through-the-line. That jargon is dead. We kept only the truth beneath it — Total — and the conviction that a brand is one experience built whole, not a campaign stitched across channels after the fact.",
@@ -105,6 +113,7 @@ export const about: AboutContent = {
     { figure: "6", label: "Practices, one roof" },
     { figure: "40+", label: "Blue-chip & public clients" },
   ],
+  dnaHeading: "Our DNA",
 };
 
 export interface Value {
@@ -112,6 +121,9 @@ export interface Value {
   line: string;
 }
 
+// "Our DNA" — the traits named verbatim in the agency's approved brief
+// (heart, can-do, challenger thinking, eclectic, professional, integrity,
+// deep consumer understanding). Real, not placeholder.
 export const values: Value[] = [
   { word: "Heart", line: "We make work that feels something before it sells something." },
   { word: "Can-do", line: "Ambition is the default. We find the way, then make it." },
@@ -121,6 +133,15 @@ export const values: Value[] = [
   { word: "Integrity", line: "We tell clients the truth — especially when it is hard." },
   { word: "Consumer-deep", line: "We start with people, not platforms. Insight earns the idea." },
 ];
+
+// "Our Values" — a distinct operating-principles section reserved at the
+// client's request. No confirmed copy exists yet, so this is intentionally
+// left as an explicit placeholder rather than invented content.
+export const ourValues = {
+  heading: "Our Values",
+  placeholder: true,
+  note: "Copy pending — reserved for Cossé TTL's confirmed operating values.",
+};
 
 export interface ThinkingArticle {
   kicker: string;
@@ -245,6 +266,23 @@ export const disciplines: string[] = [
   "Social",
   "Public Sector",
   "Production",
+];
+
+export interface Commercial {
+  slot: string;
+  /** YouTube/Vimeo ID once supplied — null renders an explicit placeholder tile. */
+  videoId: string | null;
+  client: string;
+}
+
+// TV commercials — provision for 4 slots on the Work archive. No real films
+// have been supplied yet, so every entry renders as a clearly-labelled
+// placeholder tile (never presented as real work) until videoId is set.
+export const commercials: Commercial[] = [
+  { slot: "Commercial 01", videoId: null, client: "Client TBC" },
+  { slot: "Commercial 02", videoId: null, client: "Client TBC" },
+  { slot: "Commercial 03", videoId: null, client: "Client TBC" },
+  { slot: "Commercial 04", videoId: null, client: "Client TBC" },
 ];
 
 export interface ExecutionBlock {
@@ -616,11 +654,13 @@ const content = {
   clients,
   about,
   values,
+  ourValues,
   thinking,
   careers,
   contact,
   studio,
   cases,
+  commercials,
   flagshipSlug,
   getCase,
   nextCase,

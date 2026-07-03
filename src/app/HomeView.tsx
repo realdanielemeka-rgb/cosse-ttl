@@ -1,12 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import Grain from "@/components/Grain";
+import AbstractField from "@/components/AbstractField";
 import StartBand from "@/components/StartBand";
 import Footer from "@/components/Footer";
-import { cases, capabilities, about, thinking, clients } from "@/content";
+import { cases, capabilities, about, thinking, clients, positioning } from "@/content";
 
 const eyebrow: CSSProperties = {
   fontSize: 12,
@@ -15,15 +17,8 @@ const eyebrow: CSSProperties = {
   color: "rgba(255,255,255,0.55)",
 };
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-type YTWindow = Window & {
-  YT?: { Player: new (id: string, opts: any) => any };
-  onYouTubeIframeAPIReady?: () => void;
-};
-
 export default function HomeView() {
   const [hovWork, setHovWork] = useState<number | null>(null);
-  const videoRef = useRef<HTMLDivElement | null>(null);
   const row0Ref = useRef<HTMLDivElement | null>(null);
   const row1Ref = useRef<HTMLDivElement | null>(null);
 
@@ -38,108 +33,6 @@ export default function HomeView() {
   const b = clients.slice(half);
   const row1 = a.concat(a);
   const row2 = b.concat(b);
-
-  // ── Hero showreel (YouTube IFrame API: forces muted autoplay) ──────────────
-  useEffect(() => {
-    const reduced =
-      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const mount = videoRef.current;
-    if (!mount || reduced) return;
-    const w = window as YTWindow;
-    let player: any;
-    let poll = 0;
-    let kicked = false;
-
-    const start = () => {
-      try {
-        player = new w.YT!.Player("heroVideo", {
-          width: "100%",
-          height: "100%",
-          host: "https://www.youtube-nocookie.com",
-          videoId: "SOx8N5KW4Hc",
-          playerVars: {
-            autoplay: 1,
-            mute: 1,
-            controls: 0,
-            loop: 1,
-            playlist: "SOx8N5KW4Hc",
-            playsinline: 1,
-            modestbranding: 1,
-            rel: 0,
-            disablekb: 1,
-            fs: 0,
-            iv_load_policy: 3,
-            start: 2,
-            origin: location.origin,
-          },
-          events: {
-            onReady: (e: any) => {
-              try {
-                e.target.mute();
-                e.target.playVideo();
-              } catch {}
-            },
-            onStateChange: (e: any) => {
-              if (e.data === 0) {
-                try {
-                  e.target.seekTo(2);
-                  e.target.playVideo();
-                } catch {}
-              }
-            },
-          },
-        });
-      } catch {}
-    };
-
-    if (w.YT && w.YT.Player) {
-      start();
-    } else {
-      if (!document.getElementById("yt-api")) {
-        const tag = document.createElement("script");
-        tag.id = "yt-api";
-        tag.src = "https://www.youtube.com/iframe_api";
-        document.head.appendChild(tag);
-      }
-      const prev = w.onYouTubeIframeAPIReady;
-      w.onYouTubeIframeAPIReady = () => {
-        if (typeof prev === "function") {
-          try {
-            prev();
-          } catch {}
-        }
-        start();
-      };
-      poll = window.setInterval(() => {
-        if (w.YT && w.YT.Player) {
-          window.clearInterval(poll);
-          start();
-        }
-      }, 150);
-    }
-
-    // First-gesture fallback in case nested-frame autoplay policy blocks it.
-    const kick = () => {
-      if (kicked) return;
-      try {
-        if (player && player.playVideo) {
-          player.mute();
-          player.playVideo();
-        }
-      } catch {}
-      kicked = true;
-    };
-    const evs = ["pointerdown", "touchstart", "keydown", "scroll", "mousemove"] as const;
-    evs.forEach((ev) => window.addEventListener(ev, kick, { passive: true }));
-
-    return () => {
-      window.clearInterval(poll);
-      evs.forEach((ev) => window.removeEventListener(ev, kick));
-      try {
-        if (player && player.destroy) player.destroy();
-      } catch {}
-    };
-  }, []);
 
   // ── Clients marquee (timer + delta-time, consistent speed) ─────────────────
   useEffect(() => {
@@ -218,23 +111,8 @@ export default function HomeView() {
           padding: "120px clamp(20px,5vw,60px)",
         }}
       >
-        <div aria-hidden="true" style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none", background: "#0A0A0A" }}>
-          <div
-            ref={videoRef}
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%,-50%)",
-              width: "max(100vw, 177.78svh)",
-              height: "max(100svh, 56.25vw)",
-              opacity: 1,
-            }}
-          >
-            <div id="heroVideo" style={{ width: "100%", height: "100%" }} />
-          </div>
-        </div>
-        <Grain blend={false} drift opacity={0.42} />
+        <AbstractField />
+        <Grain blend={false} drift opacity={0.38} />
         <div
           aria-hidden="true"
           style={{
@@ -244,7 +122,7 @@ export default function HomeView() {
             pointerEvents: "none",
           }}
         />
-        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.5)", pointerEvents: "none" }} />
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.32)", pointerEvents: "none" }} />
 
         <Reveal
           as="span"
@@ -265,21 +143,15 @@ export default function HomeView() {
         </Reveal>
 
         <div style={{ position: "relative" }}>
-          <Reveal
-            as="h1"
-            delay={180}
-            dur={0.9}
-            weight={[360, 640]}
-            style={{
-              fontWeight: 500,
-              fontSize: "clamp(3.4rem,15vw,12rem)",
-              lineHeight: 0.9,
-              letterSpacing: "0.12em",
-              color: "#FFFFFF",
-              margin: 0,
-            }}
-          >
-            COSSÉ
+          <Reveal as="h1" delay={180} style={{ margin: 0, lineHeight: 0 }}>
+            <Image
+              src="/cosse-white-bold.png"
+              alt="Cossé"
+              width={1060}
+              height={548}
+              priority
+              style={{ display: "block", width: "clamp(240px,44vw,620px)", height: "auto", margin: "0 auto" }}
+            />
           </Reveal>
           <Reveal
             as="p"
@@ -317,38 +189,53 @@ export default function HomeView() {
         </Reveal>
       </section>
 
-      {/* ── 1 · POSITIONING ── */}
+      {/* ── 1 · POSITIONING / OPENING STATEMENT ── */}
       <section
         id="positioning"
         style={{
           minHeight: "90vh",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-start",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          justifyContent: "center",
           textAlign: "left",
           background: "#000000",
           padding: "clamp(90px,14vh,180px) clamp(16px,4vw,56px)",
           overflow: "hidden",
         }}
       >
+        <Reveal as="span" style={{ ...eyebrow, marginBottom: "clamp(20px,3vw,32px)" }}>
+          Our philosophy
+        </Reveal>
         <Reveal
           as="h2"
+          delay={80}
           dur={0.9}
           weight={[330, 720]}
           style={{
-            fontSize: "clamp(2.75rem,9.5vw,8.5rem)",
-            lineHeight: 0.95,
-            letterSpacing: "-0.035em",
+            fontSize: "clamp(2.4rem,7.4vw,6.6rem)",
+            lineHeight: 1.02,
+            letterSpacing: "-0.03em",
             color: "#FFFFFF",
-            margin: "0 0 0 -0.04em",
-            maxWidth: "15ch",
+            margin: "0 0 0 -0.03em",
+            maxWidth: "17ch",
           }}
         >
-          Simple human truths.
-          <br />
-          <span style={{ color: "rgba(255,255,255,0.5)" }}>Total brand experiences.</span>
-          <br />
-          Since 1995.
+          {positioning.openingStatement}
+        </Reveal>
+        <Reveal
+          as="p"
+          delay={220}
+          style={{
+            fontSize: "clamp(1.1rem,2vw,1.5rem)",
+            lineHeight: 1.4,
+            letterSpacing: "-0.01em",
+            color: "rgba(255,255,255,0.5)",
+            margin: "clamp(28px,4vw,44px) 0 0",
+            maxWidth: "36ch",
+          }}
+        >
+          {positioning.lead}
         </Reveal>
       </section>
 
@@ -390,6 +277,7 @@ export default function HomeView() {
                     style={{ opacity: op, display: "block", color: "#FFFFFF", transition: "opacity .5s cubic-bezier(0.16,1,0.3,1)" }}
                   >
                     <div
+                      className="media-sheen"
                       style={{
                         position: "relative",
                         overflow: "hidden",
@@ -442,8 +330,9 @@ export default function HomeView() {
                             {x.title}
                           </h3>
                         </div>
-                        <span style={{ fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(255,255,255,0.75)", whiteSpace: "nowrap" }}>
-                          View case →
+                        <span style={{ display: "inline-flex", alignItems: "center", gap: 10, fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(255,255,255,0.75)", whiteSpace: "nowrap" }}>
+                          View case
+                          <span className="view-chip" aria-hidden="true">→</span>
                         </span>
                       </div>
                     </div>
@@ -518,7 +407,7 @@ export default function HomeView() {
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(310px,1fr))", gap: 1, background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.12)" }}>
             {caps.map((cap, i) => (
-              <Reveal key={cap.name} delay={(i % 3) * 80} style={{ background: "#000000", padding: "clamp(28px,3vw,42px) clamp(24px,2.4vw,34px)" }}>
+              <Reveal key={cap.name} delay={(i % 3) * 80} className="card-sheen card-lift" style={{ background: "#000000", padding: "clamp(28px,3vw,42px) clamp(24px,2.4vw,34px)" }}>
                 <span style={{ fontSize: 12, letterSpacing: "0.16em", color: "rgba(255,255,255,0.4)" }}>{pad2(i + 1)}</span>
                 <h3 style={{ fontWeight: 600, fontSize: "clamp(1.35rem,2.1vw,1.7rem)", lineHeight: 1.14, letterSpacing: "-0.015em", color: "#FFFFFF", margin: "18px 0 0" }}>{cap.name}</h3>
                 <p style={{ fontWeight: 400, fontSize: "1rem", lineHeight: 1.5, color: "rgba(255,255,255,0.55)", margin: "12px 0 0" }}>{cap.scope}</p>
@@ -544,7 +433,7 @@ export default function HomeView() {
           </Reveal>
           <Reveal delay={120} style={{ flex: "1 1 300px", maxWidth: 460, display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 1, background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.12)" }}>
             {about.stats.map((s) => (
-              <div key={s.label} style={{ background: "#0A0A0A", padding: "clamp(22px,2.6vw,34px)" }}>
+              <div key={s.label} className="card-sheen" style={{ background: "#0A0A0A", padding: "clamp(22px,2.6vw,34px)" }}>
                 <div style={{ fontWeight: 600, fontSize: "clamp(1.8rem,3.4vw,2.6rem)", lineHeight: 1, letterSpacing: "-0.02em", color: "#FFFFFF" }}>{s.figure}</div>
                 <p style={{ fontSize: "0.92rem", lineHeight: 1.4, color: "rgba(255,255,255,0.55)", margin: "12px 0 0" }}>{s.label}</p>
               </div>
@@ -575,7 +464,7 @@ export default function HomeView() {
                 <Link
                   href="/thinking"
                   data-cut
-                  className="hov-panel"
+                  className="hov-panel card-lift"
                   style={{
                     flex: 1,
                     display: "flex",

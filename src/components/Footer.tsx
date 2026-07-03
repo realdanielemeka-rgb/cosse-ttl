@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SwapText from "./SwapText";
 
 const linkStyle = {
   fontSize: 15,
@@ -38,7 +39,13 @@ export default function Footer() {
           }}
         >
           <div style={{ flex: "1 1 340px", maxWidth: 460 }}>
-            <Image src="/cosse-white.png" alt="Cossé" width={150} height={34} style={{ height: 34, width: "auto", display: "block" }} />
+            <Image
+              src="/cosse-white-bold.png"
+              alt="Cossé"
+              width={220}
+              height={114}
+              style={{ height: 46, width: "auto", display: "block" }}
+            />
             <p
               style={{
                 fontWeight: 500,
@@ -79,23 +86,23 @@ export default function Footer() {
           <div style={{ display: "flex", flexWrap: "wrap", gap: "40px clamp(40px,5vw,72px)" }}>
             <nav aria-label="Explore" style={{ display: "flex", flexDirection: "column", gap: 7 }}>
               <span style={colLabel}>Explore</span>
-              <Link href="/work" data-cut className="hov-bright" style={linkStyle}>Work</Link>
-              <Link href="/capabilities" data-cut className="hov-bright" style={linkStyle}>Capabilities</Link>
-              <Link href="/studio" data-cut className="hov-bright" style={linkStyle}>Studio</Link>
-              <Link href="/about" data-cut className="hov-bright" style={linkStyle}>About</Link>
-              <Link href="/thinking" data-cut className="hov-bright" style={linkStyle}>Thinking</Link>
+              <Link href="/work" data-cut className="hov-bright" style={linkStyle}><SwapText>Work</SwapText></Link>
+              <Link href="/capabilities" data-cut className="hov-bright" style={linkStyle}><SwapText>Capabilities</SwapText></Link>
+              <Link href="/studio" data-cut className="hov-bright" style={linkStyle}><SwapText>Studio</SwapText></Link>
+              <Link href="/about" data-cut className="hov-bright" style={linkStyle}><SwapText>About</SwapText></Link>
+              <Link href="/thinking" data-cut className="hov-bright" style={linkStyle}><SwapText>Thinking</SwapText></Link>
             </nav>
             <nav aria-label="Company" style={{ display: "flex", flexDirection: "column", gap: 7 }}>
               <span style={colLabel}>Company</span>
-              <Link href="/studio" data-cut className="hov-bright" style={linkStyle}>The studio</Link>
-              <Link href="/careers" data-cut className="hov-bright" style={linkStyle}>Careers</Link>
-              <Link href="/contact" data-cut className="hov-bright" style={linkStyle}>Contact</Link>
+              <Link href="/studio" data-cut className="hov-bright" style={linkStyle}><SwapText>The studio</SwapText></Link>
+              <Link href="/careers" data-cut className="hov-bright" style={linkStyle}><SwapText>Careers</SwapText></Link>
+              <Link href="/contact" data-cut className="hov-bright" style={linkStyle}><SwapText>Contact</SwapText></Link>
             </nav>
             <nav aria-label="Connect" style={{ display: "flex", flexDirection: "column", gap: 7 }}>
               <span style={colLabel}>Connect</span>
-              <a href="https://instagram.com" target="_blank" rel="noopener" className="hov-bright" style={linkStyle}>Instagram</a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener" className="hov-bright" style={linkStyle}>LinkedIn</a>
-              <a href="https://x.com" target="_blank" rel="noopener" className="hov-bright" style={linkStyle}>X / Twitter</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener" className="hov-bright" style={linkStyle}><SwapText>Instagram</SwapText></a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" className="hov-bright" style={linkStyle}><SwapText>LinkedIn</SwapText></a>
+              <a href="https://x.com" target="_blank" rel="noopener" className="hov-bright" style={linkStyle}><SwapText>X / Twitter</SwapText></a>
             </nav>
           </div>
         </div>

@@ -7,13 +7,34 @@ import Grain from "@/components/Grain";
 import Acute from "@/components/Acute";
 import StartBand from "@/components/StartBand";
 import Footer from "@/components/Footer";
-import { cases, disciplines } from "@/content";
+import { cases, disciplines, commercials } from "@/content";
+
+const eyebrowStyle: CSSProperties = {
+  fontSize: 12,
+  letterSpacing: "0.2em",
+  textTransform: "uppercase",
+  color: "rgba(255,255,255,0.55)",
+};
+
+const PAGE_SIZE = 6;
 
 export default function WorkIndex() {
   const [filter, setFilter] = useState("All");
   const [hov, setHov] = useState<number | null>(null);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const pad2 = (n: number) => String(n).padStart(2, "0");
   const labels = ["All", ...disciplines];
+
+  const isAll = filter === "All";
+  const matches = cases.filter((c) => isAll || c.discipline === filter);
+  const visibleCases = isAll ? matches.slice(0, visibleCount) : matches;
+  const canLoadMore = isAll && visibleCount < matches.length;
+
+  const selectFilter = (label: string) => {
+    setFilter(label);
+    setHov(null);
+    setVisibleCount(PAGE_SIZE);
+  };
 
   return (
     <main style={{ background: "#000000", minHeight: "100vh" }}>
@@ -58,6 +79,122 @@ export default function WorkIndex() {
         </div>
       </section>
 
+      {/* TV COMMERCIALS */}
+      <section
+        style={{
+          background: "#0A0A0A",
+          padding: "clamp(48px,7vw,90px) clamp(20px,5vw,60px)",
+          borderTop: "1px solid rgba(255,255,255,0.12)",
+        }}
+      >
+        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
+          <Reveal
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+              gap: 16,
+              marginBottom: "clamp(28px,4vw,44px)",
+            }}
+          >
+            <div>
+              <span style={eyebrowStyle}>TV Commercials</span>
+              <h2
+                style={{
+                  fontWeight: 500,
+                  fontSize: "clamp(1.8rem,3.6vw,2.8rem)",
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.025em",
+                  color: "#FFFFFF",
+                  margin: "14px 0 0",
+                }}
+              >
+                Made for the screen, built to be remembered.
+              </h2>
+            </div>
+            <span
+              style={{
+                fontSize: 11,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.35)",
+                whiteSpace: "nowrap",
+              }}
+            >
+              Placeholder — real films to follow
+            </span>
+          </Reveal>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))",
+              gap: "clamp(16px,2vw,24px)",
+            }}
+          >
+            {commercials.map((c, i) => (
+              <Reveal key={c.slot} delay={i * 70} className="card-sheen">
+                <div
+                  className="media-sheen"
+                  style={{
+                    position: "relative",
+                    overflow: "hidden",
+                    aspectRatio: "16/9",
+                    background: "#141414",
+                    border: "1px dashed rgba(255,255,255,0.22)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Grain size={200} opacity={0.35} />
+                  <span
+                    aria-hidden="true"
+                    style={{
+                      position: "relative",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "2.6em",
+                      height: "2.6em",
+                      fontSize: "1.1rem",
+                      color: "rgba(255,255,255,0.7)",
+                      border: "1px solid rgba(255,255,255,0.35)",
+                      borderRadius: "50%",
+                    }}
+                  >
+                    ►
+                  </span>
+                  <span
+                    style={{
+                      position: "absolute",
+                      top: 12,
+                      left: 12,
+                      fontSize: 10,
+                      letterSpacing: "0.14em",
+                      textTransform: "uppercase",
+                      color: "rgba(255,255,255,0.5)",
+                    }}
+                  >
+                    Placeholder
+                  </span>
+                </div>
+                <p
+                  style={{
+                    fontSize: "0.95rem",
+                    letterSpacing: "0.01em",
+                    color: "rgba(255,255,255,0.6)",
+                    margin: "12px 0 0",
+                  }}
+                >
+                  {c.slot} — {c.client}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FILTER ROW */}
       <section style={{ background: "#000000", padding: "0 clamp(20px,5vw,60px)" }}>
         <Reveal
@@ -92,15 +229,7 @@ export default function WorkIndex() {
               fontFamily: "inherit",
             };
             return (
-              <button
-                key={label}
-                type="button"
-                onClick={() => {
-                  setFilter(label);
-                  setHov(null);
-                }}
-                style={style}
-              >
+              <button key={label} type="button" onClick={() => selectFilter(label)} style={style}>
                 <span
                   aria-hidden="true"
                   style={{
@@ -126,7 +255,7 @@ export default function WorkIndex() {
       <section
         style={{
           background: "#000000",
-          padding: "clamp(40px,5vw,72px) clamp(20px,5vw,60px) clamp(96px,13vw,170px)",
+          padding: "clamp(40px,5vw,72px) clamp(20px,5vw,60px) clamp(56px,7vw,90px)",
         }}
       >
         <div
@@ -138,9 +267,8 @@ export default function WorkIndex() {
             gap: "clamp(24px,3vw,52px)",
           }}
         >
-          {cases.map((x, i) => {
-            const visible = filter === "All" || x.discipline === filter;
-            const op = !visible ? 0.14 : hov !== null && hov !== i ? 0.42 : 1;
+          {visibleCases.map((x, i) => {
+            const op = hov !== null && hov !== i ? 0.42 : 1;
             return (
               <Reveal
                 key={x.slug}
@@ -155,12 +283,12 @@ export default function WorkIndex() {
                   onMouseLeave={() => setHov(null)}
                   style={{
                     opacity: op,
-                    pointerEvents: visible ? "auto" : "none",
                     display: "block",
                     transition: "opacity .5s cubic-bezier(0.16,1,0.3,1)",
                   }}
                 >
                   <div
+                    className="media-sheen"
                     style={{
                       position: "relative",
                       overflow: "hidden",
@@ -262,6 +390,30 @@ export default function WorkIndex() {
             );
           })}
         </div>
+
+        {canLoadMore && (
+          <div style={{ display: "flex", justifyContent: "center", marginTop: "clamp(40px,5vw,64px)" }}>
+            <button
+              type="button"
+              onClick={() => setVisibleCount((n) => n + PAGE_SIZE)}
+              className="btn-outline-glass"
+              style={{
+                fontFamily: "inherit",
+                fontSize: 13,
+                fontWeight: 600,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "#FFFFFF",
+                background: "none",
+                border: "1px solid rgba(255,255,255,0.3)",
+                padding: "18px 40px",
+                cursor: "pointer",
+              }}
+            >
+              Load more
+            </button>
+          </div>
+        )}
       </section>
 
       <StartBand title="Your brief could be next." />

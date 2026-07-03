@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Acute from "./Acute";
+import SwapText from "./SwapText";
 
 const EASE_CINE = "cubic-bezier(0.16,1,0.3,1)";
 const EASE_CUT = "cubic-bezier(0.85,0,0.15,1)";
@@ -285,12 +286,12 @@ export default function CornerNav() {
         }}
       >
         <Image
-          src="/cosse-white.png"
+          src="/cosse-white-bold.png"
           alt="Cossé"
-          width={140}
-          height={32}
+          width={220}
+          height={114}
           priority
-          style={{ display: "block", height: "clamp(24px,2.3vw,32px)", width: "auto" }}
+          style={{ display: "block", height: "clamp(34px,3.4vw,48px)", width: "auto" }}
         />
       </Link>
 
@@ -317,7 +318,7 @@ export default function CornerNav() {
       <Link
         href="/contact"
         data-cut
-        className="cn-desktop hov-dim"
+        className="cn-desktop"
         style={{
           position: "absolute",
           bottom: "clamp(18px,2.6vw,34px)",
@@ -329,13 +330,13 @@ export default function CornerNav() {
           textTransform: "uppercase",
         }}
       >
-        Start a project
+        <SwapText>Start a project</SwapText>
       </Link>
       <a
         href="https://instagram.com"
         target="_blank"
         rel="noopener"
-        className="cn-desktop hov-dim"
+        className="cn-desktop"
         style={{
           position: "absolute",
           bottom: "clamp(18px,2.6vw,34px)",
@@ -347,7 +348,7 @@ export default function CornerNav() {
           textTransform: "uppercase",
         }}
       >
-        Follow
+        <SwapText>Follow</SwapText>
       </a>
 
       {/* scroll-progress hairline + acute marker */}
@@ -424,15 +425,15 @@ export default function CornerNav() {
           Close
         </button>
         <Image
-          src="/cosse-white.png"
+          src="/cosse-white-bold.png"
           alt="Cossé"
-          width={140}
-          height={32}
+          width={220}
+          height={114}
           style={{
             position: "absolute",
             top: "clamp(16px,2.3vw,30px)",
             left: "clamp(20px,2.6vw,34px)",
-            height: "clamp(24px,2.3vw,32px)",
+            height: "clamp(34px,3.4vw,48px)",
             width: "auto",
           }}
         />
@@ -531,7 +532,6 @@ export default function CornerNav() {
                 key={l.href}
                 href={l.href}
                 data-cut
-                className="hov-soft"
                 style={{
                   fontSize: "clamp(1.3rem,2.3vw,1.7rem)",
                   fontWeight: 500,
@@ -541,7 +541,7 @@ export default function CornerNav() {
                   color: "rgba(255,255,255,0.85)",
                 }}
               >
-                {l.label}
+                <SwapText>{l.label}</SwapText>
               </Link>
             ))}
             <div style={{ height: 1, background: "rgba(255,255,255,0.14)", margin: "10px 0 6px" }} />

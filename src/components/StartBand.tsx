@@ -48,6 +48,19 @@ export default function StartBand({
           pointerEvents: "none",
         }}
       />
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: "-30%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "min(90vw,900px)",
+          height: "min(90vw,900px)",
+          background: "radial-gradient(circle, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 62%)",
+          pointerEvents: "none",
+        }}
+      />
       <div style={{ position: "relative", maxWidth: 1000, margin: "0 auto" }}>
         <span
           style={{
@@ -102,7 +115,7 @@ export default function StartBand({
           <Link
             href="/contact"
             data-cut
-            className="hov-soft"
+            className="btn-sheen"
             style={{
               display: "inline-block",
               fontSize: 13,
@@ -110,7 +123,6 @@ export default function StartBand({
               letterSpacing: "0.18em",
               textTransform: "uppercase",
               color: "#000000",
-              background: "#FFFFFF",
               padding: "19px 38px",
             }}
           >
@@ -119,7 +131,7 @@ export default function StartBand({
           <Link
             href="/work"
             data-cut
-            className="hov-border"
+            className="btn-outline-glass"
             style={{
               display: "inline-flex",
               alignItems: "center",

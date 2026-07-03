@@ -105,7 +105,7 @@ export default function CareersPage() {
             }}
           >
             {careers.culture.map((c) => (
-              <Reveal key={c.t} className="card-sheen card-lift" style={{ background: "#000000", padding: "clamp(28px,3vw,42px)" }}>
+              <Reveal key={c.t} className="lacquer card-lift" style={{ background: "#000000", padding: "clamp(28px,3vw,42px)" }}>
                 <h3
                   style={{
                     fontWeight: 600,
@@ -286,7 +286,7 @@ export default function CareersPage() {
           <div style={{ marginTop: "clamp(34px,4vw,48px)" }}>
             <a
               href={openHref}
-              className="btn-sheen"
+              className="hov-soft"
               style={{
                 display: "inline-block",
                 fontSize: 13,

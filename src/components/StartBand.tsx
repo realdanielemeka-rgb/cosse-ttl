@@ -115,7 +115,7 @@ export default function StartBand({
           <Link
             href="/contact"
             data-cut
-            className="btn-sheen"
+            className="hov-soft"
             style={{
               display: "inline-block",
               fontSize: 13,
@@ -123,6 +123,7 @@ export default function StartBand({
               letterSpacing: "0.18em",
               textTransform: "uppercase",
               color: "#000000",
+              background: "#FFFFFF",
               padding: "19px 38px",
             }}
           >

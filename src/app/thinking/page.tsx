@@ -84,7 +84,7 @@ export default function ThinkingPage() {
       >
         <Reveal style={{ maxWidth: 1320, margin: "0 auto" }}>
           <article
-            className="card-sheen card-lift"
+            className="lacquer card-lift"
             style={{
               position: "relative",
               overflow: "hidden",
@@ -191,7 +191,7 @@ export default function ThinkingPage() {
               as="article"
               key={a.title}
               delay={a.d}
-              className="card-sheen card-lift"
+              className="lacquer card-lift"
               style={{
                 background: "#000000",
                 padding: "clamp(28px,3vw,42px)",

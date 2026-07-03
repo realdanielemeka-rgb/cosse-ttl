@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, Space_Mono } from "next/font/google";
 import "./globals.css";
 import CornerNav from "@/components/CornerNav";
+import TotalExpand from "@/components/TotalExpand";
 import LenisProvider from "@/components/LenisProvider";
 
 /*
@@ -56,6 +57,7 @@ export default function RootLayout({
       <body>
         <LenisProvider />
         <CornerNav />
+        <TotalExpand />
         {children}
       </body>
     </html>

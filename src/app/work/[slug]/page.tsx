@@ -275,7 +275,7 @@ export default async function CaseStudyPage({
               {sp.execution.map((ex, i) => (
                 <Reveal key={ex.label}>
                   <div
-                    className="media-sheen"
+                    className="lacquer-sweep"
                     style={{
                       position: "relative",
                       overflow: "hidden",
@@ -366,13 +366,15 @@ export default async function CaseStudyPage({
               {sp.channels.map((ch) => (
                 <span
                   key={ch}
+                  className="chevron-tag lacquer"
                   style={{
                     fontSize: "clamp(0.85rem,1.3vw,1.05rem)",
                     letterSpacing: "0.04em",
                     textTransform: "uppercase",
                     color: "rgba(255,255,255,0.85)",
+                    background: "#0A0A0A",
                     border: "1px solid rgba(255,255,255,0.18)",
-                    padding: "14px 22px",
+                    padding: "14px 26px",
                   }}
                 >
                   {ch}
@@ -426,7 +428,7 @@ export default async function CaseStudyPage({
                 <Reveal
                   key={m.label}
                   delay={i * 80}
-                  className="card-sheen card-lift"
+                  className="lacquer card-lift"
                   style={{ background: "#0A0A0A", padding: "clamp(32px,4vw,52px) clamp(24px,2.4vw,36px)" }}
                 >
                   <div
@@ -499,7 +501,7 @@ export default async function CaseStudyPage({
         }}
       >
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <Reveal as="a" href={`/work/${nx.slug}`} data-cut className="cs-next" style={{ display: "block" }}>
+          <Reveal as="a" href={`/work/${nx.slug}`} data-cut className="cs-next lacquer-sweep" style={{ display: "block" }}>
             <span style={{ ...numLabel }}>Next project</span>
             <div
               className="cs-next-row"

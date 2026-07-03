@@ -1,22 +1,13 @@
 "use client";
 
-/*
- * This component's job is imperative motion that synchronises React with two
- * external systems — `prefers-reduced-motion` (matchMedia) and viewport
- * intersection (IntersectionObserver) — so it legitimately flips state from an
- * effect on mount. That is exactly the pattern the rule below guards against in
- * the general case, so we opt out here deliberately.
- */
-/* eslint-disable react-hooks/set-state-in-effect */
-
 import {
+  forwardRef,
   useEffect,
   useRef,
   useState,
   type CSSProperties,
   type ElementType,
   type ReactNode,
-  type Ref,
 } from "react";
 
 const EASE = "cubic-bezier(0.16,1,0.3,1)";
@@ -44,23 +35,21 @@ type RevealProps = {
  * Scroll-reveal primitive — fade + rise (+ optional weight-settle), once.
  * Mirrors the prototype's reveal system but is React-stateful, so a parent
  * re-render (hover, form input) never resets an already-revealed element.
- * Respects prefers-reduced-motion and carries a real-time failsafe.
+ * Respects prefers-reduced-motion and carries a real-time failsafe. Forwards
+ * its ref (merged with the internal intersection-observer ref) so callers
+ * can manage focus on the rendered element (e.g. LoadMore reveals).
  */
-export default function Reveal({
-  as = "div",
-  children,
-  delay = 0,
-  y = 16,
-  rest = "none",
-  dur = 0.8,
-  weight,
-  style,
-  className,
-  ...passthrough
-}: RevealProps) {
-  const ref = useRef<HTMLElement | null>(null);
+const Reveal = forwardRef<HTMLElement, RevealProps>(function Reveal(props: RevealProps, forwardedRef) {
+  const { as = "div", children, delay = 0, y = 16, rest = "none", dur = 0.8, weight, style, className, ...passthrough } = props;
+  const innerRef = useRef<HTMLElement | null>(null);
   const [shown, setShown] = useState(false);
   const [reduced, setReduced] = useState(false);
+
+  const setRefs = (el: HTMLElement | null) => {
+    innerRef.current = el;
+    if (typeof forwardedRef === "function") forwardedRef(el);
+    else if (forwardedRef) (forwardedRef as { current: HTMLElement | null }).current = el;
+  };
 
   useEffect(() => {
     const mq =
@@ -72,7 +61,7 @@ export default function Reveal({
       setShown(true);
       return;
     }
-    const el = ref.current;
+    const el = innerRef.current;
     if (!el) {
       setShown(true);
       return;
@@ -119,8 +108,10 @@ export default function Reveal({
 
   const Tag = as as ElementType;
   return (
-    <Tag ref={ref as Ref<HTMLElement>} className={className} style={computed} {...passthrough}>
+    <Tag ref={setRefs} className={className} style={computed} {...passthrough}>
       {children}
     </Tag>
   );
-}
+});
+
+export default Reveal;

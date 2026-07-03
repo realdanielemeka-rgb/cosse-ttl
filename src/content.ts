@@ -9,8 +9,10 @@
 
 export interface Positioning {
   eyebrow: string;
-  /** The client's real opening statement — leads the Home positioning beat. */
+  /** The client's real opening statement, used verbatim — its own mission band. */
   openingStatement: string;
+  /** The exact lockup phrase used with the logo on the landing frame. */
+  lockup: string;
   manifesto: string;
   descriptor: string;
   lead: string;
@@ -22,14 +24,15 @@ export interface Positioning {
 
 export const positioning: Positioning = {
   eyebrow: "INTEGRATED MARKETING COMMUNICATIONS · LAGOS",
-  openingStatement: "Human beings are simple at heart and can be reached in simple ways.",
+  openingStatement: "Human Beings are simple at heart and can be reached in simple ways.",
+  lockup: "ESTABLISHED IN 1995",
   manifesto: "We turn simple human truths into total brand experiences.",
   descriptor:
     "We turn simple human truths into brand experiences that move people, markets and culture.",
   lead: "Simple human truths. Total brand experiences. Since 1995.",
   leadLines: ["Simple human truths.", "Total brand experiences.", "Since 1995."],
   totalNote:
-    "“TTL” once meant through-the-line — a piece of media jargon that has quietly died. We kept only the truth beneath it.",
+    "“TTL” (through-the-line) is retired in favour of the only word that still matters, ",
   totalWord: "Total",
   location: "Integrated Marketing Communications · Lagos, Nigeria",
 };
@@ -91,8 +94,10 @@ export const capabilities: Capability[] = [
 
 export interface AboutContent {
   lead: string;
-  /** Section heading for the body paragraphs below — "Our Philosophy". */
-  philosophyHeading: string;
+  /** Section heading for the body paragraphs below. ("Our Philosophy" is
+   * Home's dedicated placeholder beat per Master Prompt v4 §10.3 — kept
+   * distinct here to avoid two differently-policed sections sharing a name.) */
+  storyHeading: string;
   body: string[];
   stats: { figure: string; label: string }[];
   /** Section heading for the `values` (DNA) grid below — "Our DNA". */
@@ -101,7 +106,7 @@ export interface AboutContent {
 
 export const about: AboutContent = {
   lead: "Thirty years turning simple human truths into total brand experiences.",
-  philosophyHeading: "Our Philosophy",
+  storyHeading: "Our Story",
   body: [
     "We started in Lagos in 1995 as Bates Cossé. Three decades later we still do one thing: find the simple human truth inside a business problem, and build a total brand experience around it.",
     "“TTL” used to mean through-the-line. That jargon is dead. We kept only the truth beneath it — Total — and the conviction that a brand is one experience built whole, not a campaign stitched across channels after the fact.",
@@ -126,17 +131,23 @@ export interface Value {
 // deep consumer understanding). Real, not placeholder.
 export const values: Value[] = [
   { word: "Heart", line: "We make work that feels something before it sells something." },
-  { word: "Can-do", line: "Ambition is the default. We find the way, then make it." },
-  { word: "Challenger", line: "We question the brief, the category and the obvious answer." },
+  { word: "Can-Do", line: "Ambition is the default. We find the way, then make it." },
+  { word: "Challenger Thinking", line: "We question the brief, the category and the obvious answer." },
   { word: "Eclectic", line: "Many disciplines, one table. Range is the advantage." },
   { word: "Professional", line: "Senior people, on the work, on time." },
   { word: "Integrity", line: "We tell clients the truth — especially when it is hard." },
-  { word: "Consumer-deep", line: "We start with people, not platforms. Insight earns the idea." },
+  { word: "Deep Consumer Understanding", line: "We start with people, not platforms. Insight earns the idea." },
 ];
 
-// "Our Values" — a distinct operating-principles section reserved at the
-// client's request. No confirmed copy exists yet, so this is intentionally
-// left as an explicit placeholder rather than invented content.
+// "Our Philosophy" and "Our Values" — Home page beats (Master Prompt v4,
+// §10.3/§10.5). No confirmed copy exists for either yet, so both render
+// through <Placeholder> rather than invented content.
+export const ourPhilosophy = {
+  heading: "Our Philosophy",
+  placeholder: true,
+  note: "Copy pending — reserved for Cossé TTL's philosophy statement (2–4 sentences).",
+};
+
 export const ourValues = {
   heading: "Our Values",
   placeholder: true,
@@ -270,20 +281,25 @@ export const disciplines: string[] = [
 
 export interface Commercial {
   slot: string;
+  title: string | null;
+  client: string;
   /** YouTube/Vimeo ID once supplied — null renders an explicit placeholder tile. */
   videoId: string | null;
-  client: string;
+  /** Poster/still image path once supplied. */
+  poster: string | null;
 }
 
-// TV commercials — provision for 4 slots on the Work archive. No real films
-// have been supplied yet, so every entry renders as a clearly-labelled
-// placeholder tile (never presented as real work) until videoId is set.
-export const commercials: Commercial[] = [
-  { slot: "Commercial 01", videoId: null, client: "Client TBC" },
-  { slot: "Commercial 02", videoId: null, client: "Client TBC" },
-  { slot: "Commercial 03", videoId: null, client: "Client TBC" },
-  { slot: "Commercial 04", videoId: null, client: "Client TBC" },
-];
+// TV commercials — provision for 8 slots on the Work archive (4 shown, 4
+// behind Load More). No real films/titles/clients have been supplied yet —
+// per the content-integrity policy, nothing here is invented; every entry
+// renders as a clearly-labelled placeholder tile until real data lands.
+export const commercials: Commercial[] = Array.from({ length: 8 }, (_, i) => ({
+  slot: "Commercial " + String(i + 1).padStart(2, "0"),
+  title: null,
+  client: "Client TBC",
+  videoId: null,
+  poster: null,
+}));
 
 export interface ExecutionBlock {
   label: string;
@@ -654,6 +670,7 @@ const content = {
   clients,
   about,
   values,
+  ourPhilosophy,
   ourValues,
   thinking,
   careers,

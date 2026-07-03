@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, type CSSProperties } from "react";
-import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import Grain from "@/components/Grain";
 import Acute from "@/components/Acute";
+import WorkCard from "@/components/WorkCard";
+import CommercialCard from "@/components/CommercialCard";
 import StartBand from "@/components/StartBand";
 import Footer from "@/components/Footer";
 import { cases, disciplines, commercials } from "@/content";
@@ -20,9 +20,9 @@ const PAGE_SIZE = 6;
 
 export default function WorkIndex() {
   const [filter, setFilter] = useState("All");
+  const [filterHover, setFilterHover] = useState<string | null>(null);
   const [hov, setHov] = useState<number | null>(null);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-  const pad2 = (n: number) => String(n).padStart(2, "0");
   const labels = ["All", ...disciplines];
 
   const isAll = filter === "All";
@@ -133,71 +133,18 @@ export default function WorkIndex() {
             }}
           >
             {commercials.map((c, i) => (
-              <Reveal key={c.slot} delay={i * 70} className="card-sheen">
-                <div
-                  className="media-sheen"
-                  style={{
-                    position: "relative",
-                    overflow: "hidden",
-                    aspectRatio: "16/9",
-                    background: "#141414",
-                    border: "1px dashed rgba(255,255,255,0.22)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Grain size={200} opacity={0.35} />
-                  <span
-                    aria-hidden="true"
-                    style={{
-                      position: "relative",
-                      display: "inline-flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      width: "2.6em",
-                      height: "2.6em",
-                      fontSize: "1.1rem",
-                      color: "rgba(255,255,255,0.7)",
-                      border: "1px solid rgba(255,255,255,0.35)",
-                      borderRadius: "50%",
-                    }}
-                  >
-                    ►
-                  </span>
-                  <span
-                    style={{
-                      position: "absolute",
-                      top: 12,
-                      left: 12,
-                      fontSize: 10,
-                      letterSpacing: "0.14em",
-                      textTransform: "uppercase",
-                      color: "rgba(255,255,255,0.5)",
-                    }}
-                  >
-                    Placeholder
-                  </span>
-                </div>
-                <p
-                  style={{
-                    fontSize: "0.95rem",
-                    letterSpacing: "0.01em",
-                    color: "rgba(255,255,255,0.6)",
-                    margin: "12px 0 0",
-                  }}
-                >
-                  {c.slot} — {c.client}
-                </p>
+              <Reveal key={c.slot} delay={i * 60}>
+                <CommercialCard slot={c.slot} client={c.client} title={c.title} videoId={c.videoId} poster={c.poster} />
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FILTER ROW */}
+      {/* FILTER ROW — sibling-dim on hover, active state on click */}
       <section style={{ background: "#000000", padding: "0 clamp(20px,5vw,60px)" }}>
         <Reveal
+          onMouseLeave={() => setFilterHover(null)}
           style={{
             maxWidth: 1320,
             margin: "0 auto",
@@ -211,6 +158,7 @@ export default function WorkIndex() {
         >
           {labels.map((label) => {
             const active = label === filter;
+            const dimmed = filterHover !== null && filterHover !== label;
             const style: CSSProperties = {
               display: "inline-flex",
               alignItems: "center",
@@ -225,11 +173,20 @@ export default function WorkIndex() {
               minHeight: 44,
               marginRight: 20,
               color: active ? "#FFFFFF" : "rgba(255,255,255,0.4)",
-              transition: "color .3s ease",
+              opacity: dimmed ? 0.4 : 1,
+              transition: "color .3s ease, opacity .3s ease",
               fontFamily: "inherit",
             };
             return (
-              <button key={label} type="button" onClick={() => selectFilter(label)} style={style}>
+              <button
+                key={label}
+                type="button"
+                onClick={() => selectFilter(label)}
+                onMouseEnter={() => setFilterHover(label)}
+                onFocus={() => setFilterHover(label)}
+                onBlur={() => setFilterHover(null)}
+                style={style}
+              >
                 <span
                   aria-hidden="true"
                   style={{
@@ -251,7 +208,7 @@ export default function WorkIndex() {
         </Reveal>
       </section>
 
-      {/* GRID */}
+      {/* GRID — one hero-scale piece (index 0), the rest at standard scale */}
       <section
         style={{
           background: "#000000",
@@ -276,116 +233,23 @@ export default function WorkIndex() {
                 y={18}
                 style={{ gridColumn: i === 0 ? "1 / -1" : "auto" }}
               >
-                <Link
-                  href={`/work/${x.slug}`}
-                  data-cut
+                <div
                   onMouseEnter={() => setHov(i)}
                   onMouseLeave={() => setHov(null)}
-                  style={{
-                    opacity: op,
-                    display: "block",
-                    transition: "opacity .5s cubic-bezier(0.16,1,0.3,1)",
-                  }}
+                  style={{ opacity: op, transition: "opacity .5s cubic-bezier(0.16,1,0.3,1)" }}
                 >
-                  <div
-                    className="media-sheen"
-                    style={{
-                      position: "relative",
-                      overflow: "hidden",
-                      aspectRatio: "16/9",
-                      background: "#141414",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <span
-                      aria-hidden="true"
-                      style={{
-                        fontWeight: 700,
-                        fontSize: "clamp(3.5rem,12vw,8rem)",
-                        color: "rgba(255,255,255,0.05)",
-                        letterSpacing: "-0.04em",
-                        lineHeight: 1,
-                      }}
-                    >
-                      {x.keyword}
-                    </span>
-                    <Grain size={200} opacity={0.4} />
-                    <span
-                      style={{
-                        position: "absolute",
-                        top: 14,
-                        left: 14,
-                        fontSize: 10,
-                        letterSpacing: "0.14em",
-                        textTransform: "uppercase",
-                        color: "rgba(255,255,255,0.5)",
-                      }}
-                    >
-                      {pad2(i + 1)}
-                    </span>
-                    <span
-                      style={{
-                        position: "absolute",
-                        top: 14,
-                        right: 14,
-                        fontSize: 10,
-                        letterSpacing: "0.14em",
-                        textTransform: "uppercase",
-                        color: "rgba(255,255,255,0.5)",
-                      }}
-                    >
-                      {x.discipline}
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      justifyContent: "space-between",
-                      alignItems: "baseline",
-                      gap: "10px 18px",
-                      paddingTop: 18,
-                    }}
-                  >
-                    <h2
-                      style={{
-                        fontWeight: 600,
-                        fontSize: "clamp(1.45rem,2.6vw,2.1rem)",
-                        lineHeight: 1.06,
-                        letterSpacing: "-0.02em",
-                        color: "#FFFFFF",
-                        margin: 0,
-                      }}
-                    >
-                      {x.title}
-                    </h2>
-                    <span
-                      style={{
-                        fontSize: 11,
-                        letterSpacing: "0.14em",
-                        textTransform: "uppercase",
-                        color: "rgba(255,255,255,0.55)",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      {x.client} · {x.year}
-                    </span>
-                  </div>
-                  <p
-                    style={{
-                      fontWeight: 400,
-                      fontSize: "clamp(0.98rem,1.4vw,1.12rem)",
-                      lineHeight: 1.5,
-                      color: "rgba(255,255,255,0.55)",
-                      margin: "10px 0 0",
-                      maxWidth: "48ch",
-                    }}
-                  >
-                    {x.idea}
-                  </p>
-                </Link>
+                  <WorkCard
+                    href={`/work/${x.slug}`}
+                    keyword={x.keyword}
+                    discipline={x.discipline}
+                    title={x.title}
+                    client={x.client}
+                    year={x.year}
+                    idea={x.idea}
+                    index={i}
+                    featured={i === 0}
+                  />
+                </div>
               </Reveal>
             );
           })}
@@ -396,7 +260,7 @@ export default function WorkIndex() {
             <button
               type="button"
               onClick={() => setVisibleCount((n) => n + PAGE_SIZE)}
-              className="btn-outline-glass"
+              className="lacquer-sweep btn-outline-glass"
               style={{
                 fontFamily: "inherit",
                 fontSize: 13,

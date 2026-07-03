@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Acute from "./Acute";
 import SwapText from "./SwapText";
+import LogoMark from "./LogoMark";
+import PersistentCTA from "./PersistentCTA";
 
 const EASE_CINE = "cubic-bezier(0.16,1,0.3,1)";
 const EASE_CUT = "cubic-bezier(0.85,0,0.15,1)";
@@ -34,6 +35,9 @@ export default function CornerNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hovMenu, setHovMenu] = useState<number | null>(null);
   const [hovMenuBtn, setHovMenuBtn] = useState(false);
+  // On Home, the top-left wordmark is omitted while the bold centred
+  // LogoMark carries that role — it reappears once scrolled past landing.
+  const [pastLanding, setPastLanding] = useState(false);
 
   const loaderRef = useRef<HTMLDivElement | null>(null);
   const cursorRef = useRef<HTMLDivElement | null>(null);
@@ -44,6 +48,25 @@ export default function CornerNav() {
   const pathRef = useRef(pathname);
   useEffect(() => {
     pathRef.current = pathname;
+  }, [pathname]);
+
+  useEffect(() => {
+    // Syncs with the route (pathname) and scroll position — both external to
+    // React — so setting state directly here is the correct pattern, not the
+    // cascading-render anti-pattern this rule otherwise guards against.
+    if (pathname !== "/") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setPastLanding(true);
+      return;
+    }
+    const check = () => setPastLanding(window.scrollY > window.innerHeight * 0.8);
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check);
+    return () => {
+      window.removeEventListener("scroll", check);
+      window.removeEventListener("resize", check);
+    };
   }, [pathname]);
 
   // ── loader, cursor, scroll-progress, film-cut ──────────────────────────────
@@ -269,7 +292,8 @@ export default function CornerNav() {
         }}
       />
 
-      {/* logo — top left */}
+      {/* logo — top left (omitted on Home's landing frame; the centred
+          LogoMark carries that role until scrolled past it) */}
       <Link
         href="/"
         data-cut
@@ -279,20 +303,15 @@ export default function CornerNav() {
           position: "absolute",
           top: "clamp(16px,2.3vw,30px)",
           left: "clamp(20px,2.6vw,34px)",
-          pointerEvents: "auto",
+          pointerEvents: pastLanding ? "auto" : "none",
+          opacity: pastLanding ? 1 : 0,
+          transition: "opacity .4s " + EASE_CINE,
           display: "block",
           padding: 12,
           margin: -12,
         }}
       >
-        <Image
-          src="/cosse-white-bold.png"
-          alt="Cossé"
-          width={220}
-          height={114}
-          priority
-          style={{ display: "block", height: "clamp(34px,3.4vw,48px)", width: "auto" }}
-        />
+        <LogoMark mode="corner" />
       </Link>
 
       {/* MENU button — top right */}
@@ -315,23 +334,9 @@ export default function CornerNav() {
       </button>
 
       {/* bottom corners — desktop only */}
-      <Link
-        href="/contact"
-        data-cut
-        className="cn-desktop"
-        style={{
-          position: "absolute",
-          bottom: "clamp(18px,2.6vw,34px)",
-          left: "clamp(20px,2.6vw,34px)",
-          pointerEvents: "auto",
-          fontSize: 12,
-          fontWeight: 500,
-          letterSpacing: "0.2em",
-          textTransform: "uppercase",
-        }}
-      >
-        <SwapText>Start a project</SwapText>
-      </Link>
+      <div className="cn-desktop" style={{ position: "absolute", bottom: "clamp(18px,2.6vw,34px)", left: "clamp(20px,2.6vw,34px)", pointerEvents: "auto" }}>
+        <PersistentCTA variant="corner" />
+      </div>
       <a
         href="https://instagram.com"
         target="_blank"
@@ -379,15 +384,18 @@ export default function CornerNav() {
         </div>
       </div>
 
-      {/* overlay menu */}
+      {/* overlay menu — a glass panel per the Lacquer system (UI-chrome scope
+          only). @supports fallback in globals.css covers devices without
+          backdrop-filter. */}
       <div
+        className="overlay-glass"
         style={{
           position: "fixed",
           inset: 0,
           zIndex: 60,
-          background: "rgba(0,0,0,0.94)",
-          backdropFilter: "blur(7px)",
-          WebkitBackdropFilter: "blur(7px)",
+          background: "var(--glass-panel-bg)",
+          backdropFilter: "blur(var(--glass-blur))",
+          WebkitBackdropFilter: "blur(var(--glass-blur))",
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-start",
@@ -424,19 +432,15 @@ export default function CornerNav() {
         >
           Close
         </button>
-        <Image
-          src="/cosse-white-bold.png"
-          alt="Cossé"
-          width={220}
-          height={114}
+        <div
           style={{
             position: "absolute",
             top: "clamp(16px,2.3vw,30px)",
             left: "clamp(20px,2.6vw,34px)",
-            height: "clamp(34px,3.4vw,48px)",
-            width: "auto",
           }}
-        />
+        >
+          <LogoMark mode="corner" />
+        </div>
         <div
           style={{
             maxWidth: 1320,

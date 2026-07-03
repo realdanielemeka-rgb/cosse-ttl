@@ -18,6 +18,17 @@
   --ease-cine: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-cut: cubic-bezier(0.85, 0, 0.15, 1);
   --ease-glyph: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /*
+   * The Lacquer system — a glossy BLACK-LACQUER surface, not shiny plastic.
+   * Monochrome-plus-warmth: a whisper of the brand's retired brass, now a
+   * lacquer tint rather than an accent colour. One-shot only, never loops.
+   */
+  --sheen-warm: rgba(255, 246, 232, 0.07);        /* pale warm ivory — "brass under lacquer" */
+  --sheen-warm-strong: rgba(255, 246, 232, 0.14); /* edge/bevel highlight */
+  --sheen-cool-alt: rgba(255, 255, 255, 0.07);    /* neutral swap, if ever preferred */
+  --glass-panel-bg: rgba(0, 0, 0, 0.70);
+  --glass-blur: 14px;
 }
 
 @theme inline {
@@ -196,59 +207,48 @@ button:hover .swap-text-inner {
 }
 
 /*
- * Gloss / sheen system — a deliberate art-direction pass (client-requested)
- * layered on top of the monochrome base: soft gradient fills, a light sweep
- * on primary buttons, subtle glass highlights and lift on cards.
+ * The Lacquer system — the site's "glossy/premium" answer. Reserved for dark
+ * card/button/nav chrome (display type and UI surfaces only — never body
+ * text, per the contrast discipline in the brief).
+ *
+ * .lacquer      — static panel sheen: a soft warm diagonal + a hairline
+ *                 warm-lit top edge, as if a black lacquered surface is
+ *                 catching one soft light source.
+ * .lacquer-sweep — the one-shot hover signature ("Lacquer sweep"): a single
+ *                 warm band sweeps left→right on hover-enter and does not
+ *                 loop. Applies to buttons, work cards, the persistent CTA.
  */
-.btn-sheen {
+.lacquer {
   position: relative;
-  overflow: hidden;
-  background: linear-gradient(180deg, #ffffff 0%, #e4e4e4 100%);
-  transition: transform 0.35s var(--ease-cine), box-shadow 0.35s var(--ease-cine);
+  box-shadow: inset 0 1px 0 var(--sheen-warm-strong), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
-.btn-sheen::before {
-  content: "";
-  position: absolute;
-  top: -40%;
-  left: -60%;
-  width: 45%;
-  height: 180%;
-  background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.95) 50%, transparent 100%);
-  filter: blur(4px);
-  transform: rotate(8deg);
-  transition: left 0.7s var(--ease-cine);
-  pointer-events: none;
-}
-.btn-sheen:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(255, 255, 255, 0.5) inset;
-}
-.btn-sheen:hover::before {
-  left: 130%;
-}
-
-.btn-outline-glass {
-  position: relative;
-  transition: border-color 0.3s ease, background 0.35s ease, box-shadow 0.35s ease, transform 0.35s var(--ease-cine);
-}
-.btn-outline-glass:hover {
-  border-color: #ffffff !important;
-  background: rgba(255, 255, 255, 0.07);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 1px 0 rgba(255, 255, 255, 0.12) inset;
-  transform: translateY(-1px);
-}
-
-/* A faint top-lit highlight at rest, as if the panel catches a soft light. */
-.card-sheen {
-  position: relative;
-}
-.card-sheen::after {
+.lacquer::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 42%);
   pointer-events: none;
+  background: linear-gradient(135deg, var(--sheen-warm) 0%, transparent 35%, transparent 65%, var(--sheen-warm) 100%);
 }
+.lacquer-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.lacquer-sweep::after {
+  content: "";
+  position: absolute;
+  inset: -20% -40%;
+  background: linear-gradient(115deg, transparent 40%, var(--sheen-warm-strong) 50%, transparent 60%);
+  transform: translateX(-130%);
+  transition: transform 0.9s var(--ease-cine);
+  pointer-events: none;
+  z-index: 2;
+}
+.lacquer-sweep:hover::after {
+  transform: translateX(90%);
+}
+
+/* A quiet lift + shadow on hover — depth, not colour. Sharp corners only;
+   no rounded Web-2.0 bevel. */
 .card-lift {
   transition: transform 0.4s var(--ease-cine), box-shadow 0.4s var(--ease-cine), background 0.4s var(--ease-cine);
 }
@@ -258,23 +258,16 @@ button:hover .swap-text-inner {
   background: #0d0d0d;
 }
 
-/* A diagonal light sweep across media wells on hover — replaces the old flat
-   opacity-only hover with an actual reflected-light moment. */
-.media-sheen {
-  position: relative;
+/* Bordered, non-filled buttons (dark surface) — lacquer-sweep + a touch of
+   lift. Filled white CTAs stay plain (a lacquer tint on white paper reads
+   as dirt, not gloss — restraint over "shine everything"). */
+.btn-outline-glass {
+  transition: border-color 0.3s ease, box-shadow 0.35s ease, transform 0.35s var(--ease-cine);
 }
-.media-sheen::before {
-  content: "";
-  position: absolute;
-  inset: -20%;
-  background: linear-gradient(120deg, transparent 32%, rgba(255, 255, 255, 0.12) 46%, transparent 60%);
-  transform: translateX(-130%);
-  transition: transform 0.9s var(--ease-cine);
-  pointer-events: none;
-  z-index: 2;
-}
-.media-sheen:hover::before {
-  transform: translateX(70%);
+.btn-outline-glass:hover {
+  border-color: #ffffff !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 1px 0 var(--sheen-warm-strong) inset;
+  transform: translateY(-1px);
 }
 
 /* The acute "view" affordance — a bordered circle that inverts + rotates on
@@ -296,12 +289,17 @@ a:hover .view-chip {
   color: #000000;
   border-color: #ffffff;
 }
+
+/* Chevron tag-chip — a generic clip-path geometry technique (seen on
+   reference agency sites), rendered in Cossé's own monochrome + type. */
+.chevron-tag {
+  clip-path: polygon(0 50%, 10px 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 10px 100%);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .btn-sheen::before,
-  .media-sheen::before {
+  .lacquer-sweep::after {
     transition: none;
   }
-  .btn-sheen:hover,
   .btn-outline-glass:hover,
   .card-lift:hover,
   a:hover .view-chip {
@@ -309,69 +307,62 @@ a:hover .view-chip {
   }
 }
 
-/*
- * AbstractField — the cover's generative backdrop (replaces real footage).
- * Two large soft light blobs drift slowly; a sparse field of the acute glyph
- * floats even slower. Transform/opacity only.
- */
-.af-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
-  will-change: transform;
-}
-.af-blob-a {
-  width: 62vw;
-  height: 62vw;
-  top: -14%;
-  left: -12%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 70%);
-  animation: afDriftA 28s ease-in-out infinite alternate;
-}
-.af-blob-b {
-  width: 50vw;
-  height: 50vw;
-  bottom: -16%;
-  right: -10%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0) 70%);
-  animation: afDriftB 34s ease-in-out infinite alternate;
-}
-@keyframes afDriftA {
-  from {
-    transform: translate(0, 0) scale(1);
-  }
-  to {
-    transform: translate(6%, 5%) scale(1.1);
+/* Solid-colour fallback for the overlay glass panel on devices without
+   backdrop-filter support (low-end / older browsers). */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .overlay-glass {
+    background: #000000 !important;
   }
 }
-@keyframes afDriftB {
-  from {
-    transform: translate(0, 0) scale(1);
+
+/* PersistentCTA — idle micro-pulse on the Acute icon; border brightens on
+   hover alongside the .lacquer-sweep it's paired with. */
+.pcta-pulse {
+  animation: pctaPulse 2.6s ease-in-out infinite;
+}
+@keyframes pctaPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
-  to {
-    transform: translate(-5%, -6%) scale(1.12);
+  50% {
+    transform: scale(1.18);
+    opacity: 0.72;
   }
 }
-.af-mark {
-  color: #ffffff;
-  opacity: 0.1;
-  animation-name: afFloat;
+.pcta {
+  transition: border-color 0.3s ease;
+}
+.pcta:hover {
+  border-color: #ffffff !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pcta-pulse {
+    animation: none !important;
+  }
+}
+
+/* HeroBackdrop — independent, unsynced drift; transform/opacity only. */
+.hb-particle {
+  animation-name: hbDrift;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   will-change: transform;
 }
-@keyframes afFloat {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg);
+@keyframes hbDrift {
+  0% {
+    transform: translate(0, 0) scale(1);
   }
   50% {
-    transform: translateY(-16px) rotate(8deg);
+    transform: translate(4%, -3%) scale(1.08);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .af-blob,
-  .af-mark {
+  .hb-particle {
     animation: none !important;
   }
 }

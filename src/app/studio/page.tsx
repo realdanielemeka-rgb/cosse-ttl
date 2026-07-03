@@ -110,7 +110,7 @@ export default function StudioPage() {
             }}
           >
             {studio.ways.map((w) => (
-              <Reveal key={w.t} className="card-sheen card-lift" style={{ background: "#000000", padding: "clamp(28px,3vw,42px)" }}>
+              <Reveal key={w.t} className="lacquer card-lift" style={{ background: "#000000", padding: "clamp(28px,3vw,42px)" }}>
                 <h3
                   style={{
                     fontWeight: 600,

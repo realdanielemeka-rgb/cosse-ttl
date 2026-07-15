@@ -17,8 +17,6 @@ export interface Positioning {
   descriptor: string;
   lead: string;
   leadLines: string[];
-  totalNote: string;
-  totalWord: string;
   location: string;
 }
 
@@ -29,11 +27,8 @@ export const positioning: Positioning = {
   manifesto: "We turn simple human truths into total brand experiences.",
   descriptor:
     "We turn simple human truths into brand experiences that move people, markets and culture.",
-  lead: "Simple human truths. Total brand experiences. Since 1995.",
-  leadLines: ["Simple human truths.", "Total brand experiences.", "Since 1995."],
-  totalNote:
-    "“TTL” (through-the-line) is retired in favour of the only word that still matters, ",
-  totalWord: "Total",
+  lead: "Ideas that make the cash register ring, since 1995.",
+  leadLines: ["Ideas that make the cash register ring,", "Since 1995."],
   location: "Integrated Marketing Communications · Lagos, Nigeria",
 };
 
@@ -126,26 +121,27 @@ export interface Value {
   line: string;
 }
 
-// "Our DNA" — the traits named verbatim in the agency's approved brief
-// (heart, can-do, challenger thinking, eclectic, professional, integrity,
-// deep consumer understanding). Real, not placeholder.
+// "Our DNA" — the traits named verbatim in the agency's approved brief. Real,
+// not placeholder. Client correction round: Heart / Can-Do / Eclectic
+// reworded, "Challenger Thinking" retired in favour of "Will Do";
+// Professional / Integrity / Deep Consumer Understanding untouched (not
+// mentioned in that correction pass, so left as previously approved).
 export const values: Value[] = [
-  { word: "Heart", line: "We make work that feels something before it sells something." },
-  { word: "Can-Do", line: "Ambition is the default. We find the way, then make it." },
-  { word: "Challenger Thinking", line: "We question the brief, the category and the obvious answer." },
-  { word: "Eclectic", line: "Many disciplines, one table. Range is the advantage." },
+  { word: "Heart", line: "We put everything we have into everything we do." },
+  { word: "Can-Do", line: "We go any length to deliver on our promises." },
+  { word: "Will Do", line: "We always deliver impactful ideas that challenge the status quo." },
+  { word: "Eclectic", line: "Youthful, mold-breaking, tangential thinking and delivery." },
   { word: "Professional", line: "Senior people, on the work, on time." },
   { word: "Integrity", line: "We tell clients the truth — especially when it is hard." },
   { word: "Deep Consumer Understanding", line: "We start with people, not platforms. Insight earns the idea." },
 ];
 
-// "Our Philosophy" and "Our Values" — Home page beats (Master Prompt v4,
-// §10.3/§10.5). No confirmed copy exists for either yet, so both render
-// through <Placeholder> rather than invented content.
+// "Our Philosophy" — real client copy as of this correction round (no longer
+// a placeholder). "Our Values" is still pending and renders through
+// <Placeholder>.
 export const ourPhilosophy = {
   heading: "Our Philosophy",
-  placeholder: true,
-  note: "Copy pending — reserved for Cossé TTL's philosophy statement (2–4 sentences).",
+  body: "Human beings are simple at heart and can always be engaged in simple ways.",
 };
 
 export const ourValues = {

@@ -126,7 +126,7 @@ export default function HomeView() {
         </Reveal>
       </section>
 
-      {/* ── 10.3 · OUR PHILOSOPHY (placeholder) ── */}
+      {/* ── 10.3 · OUR PHILOSOPHY ── */}
       <section
         style={{
           background: "#0A0A0A",
@@ -149,19 +149,17 @@ export default function HomeView() {
           </span>
           <Reveal style={{ flex: "1 1 auto", textAlign: "left", maxWidth: 760 }}>
             <span style={eyebrow}>{ourPhilosophy.heading}</span>
-            <Placeholder style={{ marginTop: 18 }}>
-              <p
-                style={{
-                  fontSize: "clamp(1.3rem,2.4vw,1.9rem)",
-                  lineHeight: 1.4,
-                  color: "rgba(255,255,255,0.75)",
-                  margin: 0,
-                  textWrap: "pretty",
-                }}
-              >
-                [Placeholder — client to supply: 2–4 sentences on Cossé&apos;s philosophy]
-              </p>
-            </Placeholder>
+            <p
+              style={{
+                fontSize: "clamp(1.3rem,2.4vw,1.9rem)",
+                lineHeight: 1.4,
+                color: "rgba(255,255,255,0.75)",
+                margin: "18px 0 0",
+                textWrap: "pretty",
+              }}
+            >
+              {ourPhilosophy.body}
+            </p>
           </Reveal>
         </div>
       </section>
@@ -252,7 +250,7 @@ export default function HomeView() {
       >
         <div style={{ maxWidth: 1320, margin: "0 auto" }}>
           <Reveal style={{ marginBottom: "clamp(32px,4vw,48px)" }}>
-            <span style={eyebrow}>Selected work</span>
+            <span style={eyebrow}>Some Work</span>
             <h2
               style={{
                 fontWeight: 500,
@@ -318,26 +316,14 @@ export default function HomeView() {
             maxWidth: "18ch",
           }}
         >
-          {positioning.leadLines.map((line, i) => (
-            <span key={line} style={{ display: "block", color: i === 1 ? "rgba(255,255,255,0.5)" : undefined }}>
-              {line}
-            </span>
-          ))}
-        </Reveal>
-        <Reveal
-          as="p"
-          delay={160}
-          style={{
-            position: "relative",
-            fontSize: "clamp(0.95rem,1.4vw,1.1rem)",
-            lineHeight: 1.5,
-            color: "rgba(255,255,255,0.5)",
-            margin: "clamp(28px,3vw,40px) auto 0",
-            maxWidth: "52ch",
-          }}
-        >
-          {positioning.totalNote}
-          <strong style={{ color: "#FFFFFF", fontWeight: 600 }}>{positioning.totalWord}</strong>.
+          {positioning.leadLines.map((line, i) => {
+            const isInterior = i > 0 && i < positioning.leadLines.length - 1;
+            return (
+              <span key={line} style={{ display: "block", color: isInterior ? "rgba(255,255,255,0.5)" : undefined }}>
+                {line}
+              </span>
+            );
+          })}
         </Reveal>
       </section>
 

@@ -57,7 +57,7 @@ export default function Footer() {
                 textWrap: "balance",
               }}
             >
-              Simple human truths. Total brand experiences.{" "}
+              Ideas that make the cash register ring,{" "}
               <span style={{ color: "rgba(255,255,255,0.45)" }}>Since 1995.</span>
             </p>
             <Link
@@ -79,7 +79,7 @@ export default function Footer() {
                 paddingBottom: 8,
               }}
             >
-              Start a project <span aria-hidden="true">→</span>
+              Ready to work with us? <span aria-hidden="true">→</span>
             </Link>
           </div>
 

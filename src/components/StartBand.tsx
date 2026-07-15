@@ -127,7 +127,7 @@ export default function StartBand({
               padding: "19px 38px",
             }}
           >
-            Start a project
+            Ready to work with us?
           </Link>
           <Link
             href="/work"

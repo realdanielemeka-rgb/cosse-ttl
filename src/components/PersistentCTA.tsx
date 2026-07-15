@@ -3,14 +3,15 @@ import Link from "next/link";
 import Acute from "./Acute";
 
 /*
- * PersistentCTA — "Start a project," formalised. Built entirely from Cossé's
- * own Acute glyph: an idle micro-pulse on the icon (the acute-as-moving-agent
- * signature, at rest) and a Lacquer sweep on hover. Two variants: `corner`
- * (fixed-nav scale) and `inline` (larger, embeddable — e.g. Home's close).
+ * PersistentCTA — "Ready to work with us?", formalised. Built entirely from
+ * Cossé's own Acute glyph: an idle micro-pulse on the icon (the
+ * acute-as-moving-agent signature, at rest) and a Lacquer sweep on hover.
+ * Two variants: `corner` (fixed-nav scale) and `inline` (larger,
+ * embeddable — e.g. Home's close).
  */
 export default function PersistentCTA({
   variant = "corner",
-  label = "Start a project",
+  label = "Ready to work with us?",
   className,
   style,
 }: {

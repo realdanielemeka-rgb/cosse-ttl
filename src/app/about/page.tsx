@@ -427,7 +427,7 @@ export default function AboutPage() {
                 margin: "18px 0 0",
               }}
             >
-              Trusted across banks, brands, government and culture.
+              Logos of clients we have worked for.
             </h2>
           </Reveal>
           <Reveal

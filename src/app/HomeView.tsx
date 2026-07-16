@@ -76,7 +76,7 @@ export default function HomeView() {
 
         <Reveal
           as="a"
-          href="#opening-statement"
+          href="#philosophy"
           delay={800}
           rest="translateX(-50%)"
           style={{
@@ -95,39 +95,9 @@ export default function HomeView() {
         </Reveal>
       </section>
 
-      {/* ── 10.2 · OPENING STATEMENT (mission band) ── */}
-      <section
-        id="opening-statement"
-        style={{
-          minHeight: "80vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          textAlign: "center",
-          background: "#000000",
-          padding: "clamp(90px,14vh,180px) clamp(20px,5vw,60px)",
-        }}
-      >
-        <Reveal
-          as="h1"
-          dur={0.9}
-          weight={[300, 720]}
-          style={{
-            fontWeight: 500,
-            fontSize: "clamp(2.4rem,6.4vw,5.2rem)",
-            lineHeight: 1.08,
-            letterSpacing: "-0.02em",
-            color: "#FFFFFF",
-            margin: 0,
-            maxWidth: "18ch",
-          }}
-        >
-          {positioning.openingStatement}
-        </Reveal>
-      </section>
-
       {/* ── 10.3 · OUR PHILOSOPHY ── */}
       <section
+        id="philosophy"
         style={{
           background: "#0A0A0A",
           padding: "clamp(80px,11vw,150px) clamp(20px,5vw,60px)",
@@ -251,18 +221,6 @@ export default function HomeView() {
         <div style={{ maxWidth: 1320, margin: "0 auto" }}>
           <Reveal style={{ marginBottom: "clamp(32px,4vw,48px)" }}>
             <span style={eyebrow}>Some Work</span>
-            <h2
-              style={{
-                fontWeight: 500,
-                fontSize: "clamp(1.9rem,4vw,3rem)",
-                lineHeight: 1.06,
-                letterSpacing: "-0.025em",
-                color: "#FFFFFF",
-                margin: "14px 0 0",
-              }}
-            >
-              Made for the screen, built to be remembered.
-            </h2>
           </Reveal>
           <div
             style={{
@@ -335,9 +293,6 @@ export default function HomeView() {
           <Reveal style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: 20, marginBottom: "clamp(36px,5vw,64px)" }}>
             <div style={{ maxWidth: "24ch" }}>
               <span style={eyebrow}>Capabilities</span>
-              <h2 style={{ fontWeight: 500, fontSize: "clamp(2.1rem,4.6vw,3.6rem)", lineHeight: 1.05, letterSpacing: "-0.025em", color: "#FFFFFF", margin: "18px 0 0" }}>
-                One agency, integrated. We plan it, make it and run it.
-              </h2>
             </div>
             <Link href="/capabilities" data-cut className="hov-bright" style={{ fontSize: 12, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", padding: "13px 0", color: "rgba(255,255,255,0.6)", whiteSpace: "nowrap" }}>
               All capabilities →

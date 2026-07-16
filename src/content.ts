@@ -9,8 +9,6 @@
 
 export interface Positioning {
   eyebrow: string;
-  /** The client's real opening statement, used verbatim — its own mission band. */
-  openingStatement: string;
   /** The exact lockup phrase used with the logo on the landing frame. */
   lockup: string;
   manifesto: string;
@@ -22,7 +20,6 @@ export interface Positioning {
 
 export const positioning: Positioning = {
   eyebrow: "INTEGRATED MARKETING COMMUNICATIONS · LAGOS",
-  openingStatement: "Human Beings are simple at heart and can be reached in simple ways.",
   lockup: "ESTABLISHED IN 1995",
   manifesto: "We turn simple human truths into total brand experiences.",
   descriptor:
@@ -121,19 +118,14 @@ export interface Value {
   line: string;
 }
 
-// "Our DNA" — the traits named verbatim in the agency's approved brief. Real,
-// not placeholder. Client correction round: Heart / Can-Do / Eclectic
-// reworded, "Challenger Thinking" retired in favour of "Will Do";
-// Professional / Integrity / Deep Consumer Understanding untouched (not
-// mentioned in that correction pass, so left as previously approved).
+// "Our DNA" — real client copy, confirmed minimal set: Heart, Can-Do, Will
+// Do, Eclectic. Professional / Integrity / Deep Consumer Understanding were
+// removed per client instruction.
 export const values: Value[] = [
   { word: "Heart", line: "We put everything we have into everything we do." },
   { word: "Can-Do", line: "We go any length to deliver on our promises." },
   { word: "Will Do", line: "We always deliver impactful ideas that challenge the status quo." },
   { word: "Eclectic", line: "Youthful, mold-breaking, tangential thinking and delivery." },
-  { word: "Professional", line: "Senior people, on the work, on time." },
-  { word: "Integrity", line: "We tell clients the truth — especially when it is hard." },
-  { word: "Deep Consumer Understanding", line: "We start with people, not platforms. Insight earns the idea." },
 ];
 
 // "Our Philosophy" — real client copy as of this correction round (no longer

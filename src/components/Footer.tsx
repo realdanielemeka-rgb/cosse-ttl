@@ -79,7 +79,7 @@ export default function Footer() {
                 paddingBottom: 8,
               }}
             >
-              Ready to work with us? <span aria-hidden="true">→</span>
+              Do you want to work with us? <span aria-hidden="true">→</span>
             </Link>
           </div>
 

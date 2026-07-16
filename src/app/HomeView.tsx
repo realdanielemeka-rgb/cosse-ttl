@@ -319,23 +319,7 @@ export default function HomeView() {
           textAlign: "center",
         }}
       >
-        <Reveal
-          as="h2"
-          dur={0.9}
-          weight={[320, 720]}
-          style={{
-            fontWeight: 600,
-            fontSize: "clamp(2.6rem,8vw,6.5rem)",
-            lineHeight: 1,
-            letterSpacing: "-0.02em",
-            color: "#FFFFFF",
-            margin: "0 auto",
-            maxWidth: "16ch",
-          }}
-        >
-          Start a project.
-        </Reveal>
-        <Reveal delay={200} style={{ marginTop: "clamp(40px,5vw,56px)", display: "flex", justifyContent: "center" }}>
+        <Reveal style={{ display: "flex", justifyContent: "center" }}>
           <PersistentCTA variant="inline" />
         </Reveal>
       </section>

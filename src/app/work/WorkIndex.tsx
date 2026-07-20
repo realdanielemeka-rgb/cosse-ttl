@@ -62,10 +62,10 @@ export default function WorkIndex() {
             as="h1"
             delay={130}
             dur={0.9}
-            weight={[340, 680]}
+            weight={[340, 720]}
             style={{
               fontWeight: 500,
-              fontSize: "clamp(2.4rem,6vw,5rem)",
+              fontSize: "clamp(2.7rem,6vw,5.7rem)",
               lineHeight: 1.0,
               letterSpacing: "-0.03em",
               color: "#FFFFFF",
@@ -102,8 +102,8 @@ export default function WorkIndex() {
               <span style={eyebrowStyle}>TV Commercials</span>
               <h2
                 style={{
-                  fontWeight: 500,
-                  fontSize: "clamp(1.8rem,3.6vw,2.8rem)",
+                  fontWeight: 600,
+                  fontSize: "clamp(2.05rem,3.6vw,3.2rem)",
                   lineHeight: 1.05,
                   letterSpacing: "-0.025em",
                   color: "#FFFFFF",

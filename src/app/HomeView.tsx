@@ -121,7 +121,7 @@ export default function HomeView() {
             <span style={eyebrow}>{ourPhilosophy.heading}</span>
             <p
               style={{
-                fontSize: "clamp(1.3rem,2.4vw,1.9rem)",
+                fontSize: "clamp(1.47rem,2.4vw,2.15rem)",
                 lineHeight: 1.4,
                 color: "rgba(255,255,255,0.75)",
                 margin: "18px 0 0",
@@ -157,8 +157,8 @@ export default function HomeView() {
                   border: "1px solid rgba(255,255,255,0.2)",
                   background: "#0A0A0A",
                   padding: "16px 26px",
-                  fontSize: "clamp(1rem,1.6vw,1.25rem)",
-                  fontWeight: 500,
+                  fontSize: "clamp(1.13rem,1.6vw,1.41rem)",
+                  fontWeight: 600,
                   letterSpacing: "-0.005em",
                   color: "#FFFFFF",
                 }}
@@ -266,7 +266,7 @@ export default function HomeView() {
           style={{
             position: "relative",
             fontWeight: 500,
-            fontSize: "clamp(2.2rem,6vw,4.6rem)",
+            fontSize: "clamp(2.5rem,6vw,5.2rem)",
             lineHeight: 1.06,
             letterSpacing: "-0.03em",
             color: "#FFFFFF",
@@ -302,8 +302,8 @@ export default function HomeView() {
             {capabilities.map((cap, i) => (
               <Reveal key={cap.name} delay={(i % 3) * 80} className="lacquer card-lift" style={{ background: "#000000", padding: "clamp(28px,3vw,42px) clamp(24px,2.4vw,34px)" }}>
                 <span style={{ fontSize: 12, letterSpacing: "0.16em", color: "rgba(255,255,255,0.4)" }}>{pad2(i + 1)}</span>
-                <h3 style={{ fontWeight: 600, fontSize: "clamp(1.35rem,2.1vw,1.7rem)", lineHeight: 1.14, letterSpacing: "-0.015em", color: "#FFFFFF", margin: "18px 0 0" }}>{cap.name}</h3>
-                <p style={{ fontWeight: 400, fontSize: "1rem", lineHeight: 1.5, color: "rgba(255,255,255,0.55)", margin: "12px 0 0" }}>{cap.scope}</p>
+                <h3 style={{ fontWeight: 700, fontSize: "clamp(1.53rem,2.1vw,1.93rem)", lineHeight: 1.14, letterSpacing: "-0.015em", color: "#FFFFFF", margin: "18px 0 0" }}>{cap.name}</h3>
+                <p style={{ fontWeight: 500, fontSize: "1.13rem", lineHeight: 1.5, color: "rgba(255,255,255,0.55)", margin: "12px 0 0" }}>{cap.scope}</p>
               </Reveal>
             ))}
           </div>

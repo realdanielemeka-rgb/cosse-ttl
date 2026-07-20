@@ -48,10 +48,10 @@ export default function CapabilitiesPage() {
             as="h1"
             delay={120}
             dur={0.9}
-            weight={[340, 680]}
+            weight={[340, 720]}
             style={{
               fontWeight: 500,
-              fontSize: "clamp(2.6rem,6.4vw,5.2rem)",
+              fontSize: "clamp(2.95rem,6.4vw,5.9rem)",
               lineHeight: 1.0,
               letterSpacing: "-0.03em",
               color: "#FFFFFF",
@@ -66,7 +66,7 @@ export default function CapabilitiesPage() {
             as="p"
             delay={260}
             style={{
-              fontSize: "clamp(1.15rem,2vw,1.6rem)",
+              fontSize: "clamp(1.3rem,2vw,1.81rem)",
               lineHeight: 1.4,
               color: "rgba(255,255,255,0.6)",
               margin: "28px 0 0",
@@ -118,8 +118,8 @@ export default function CapabilitiesPage() {
                 </span>
                 <h2
                   style={{
-                    fontWeight: 600,
-                    fontSize: "clamp(1.8rem,3.4vw,2.8rem)",
+                    fontWeight: 700,
+                    fontSize: "clamp(2.05rem,3.4vw,3.2rem)",
                     lineHeight: 1.06,
                     letterSpacing: "-0.025em",
                     color: "#FFFFFF",
@@ -130,7 +130,7 @@ export default function CapabilitiesPage() {
                 </h2>
                 <p
                   style={{
-                    fontSize: "clamp(1rem,1.4vw,1.18rem)",
+                    fontSize: "clamp(1.13rem,1.4vw,1.33rem)",
                     lineHeight: 1.5,
                     color: "rgba(255,255,255,0.6)",
                     margin: "16px 0 0",
@@ -198,8 +198,8 @@ export default function CapabilitiesPage() {
             </span>
             <h2
               style={{
-                fontWeight: 500,
-                fontSize: "clamp(2.1rem,4.6vw,3.6rem)",
+                fontWeight: 600,
+                fontSize: "clamp(2.4rem,4.6vw,4.1rem)",
                 lineHeight: 1.05,
                 letterSpacing: "-0.025em",
                 color: "#FFFFFF",
@@ -210,7 +210,7 @@ export default function CapabilitiesPage() {
             </h2>
             <p
               style={{
-                fontSize: "clamp(1rem,1.4vw,1.15rem)",
+                fontSize: "clamp(1.13rem,1.4vw,1.3rem)",
                 lineHeight: 1.55,
                 color: "rgba(255,255,255,0.55)",
                 margin: "20px 0 0",
@@ -248,8 +248,8 @@ export default function CapabilitiesPage() {
                 <h3
                   style={{
                     flex: "1 1 220px",
-                    fontWeight: 500,
-                    fontSize: "clamp(1.7rem,3.6vw,2.8rem)",
+                    fontWeight: 600,
+                    fontSize: "clamp(1.92rem,3.6vw,3.16rem)",
                     lineHeight: 1.04,
                     letterSpacing: "-0.02em",
                     color: "#FFFFFF",
@@ -261,8 +261,8 @@ export default function CapabilitiesPage() {
                 <p
                   style={{
                     flex: "2 1 320px",
-                    fontWeight: 400,
-                    fontSize: "clamp(0.98rem,1.4vw,1.15rem)",
+                    fontWeight: 500,
+                    fontSize: "clamp(1.1rem,1.4vw,1.3rem)",
                     lineHeight: 1.5,
                     color: "rgba(255,255,255,0.55)",
                     margin: 0,

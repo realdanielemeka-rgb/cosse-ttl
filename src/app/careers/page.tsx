@@ -57,7 +57,7 @@ export default function CareersPage() {
             weight={[340, 700]}
             style={{
               fontWeight: 500,
-              fontSize: "clamp(2.6rem,6.8vw,5.4rem)",
+              fontSize: "clamp(2.95rem,6.8vw,6.1rem)",
               lineHeight: 0.98,
               letterSpacing: "-0.03em",
               color: "#FFFFFF",
@@ -84,8 +84,8 @@ export default function CareersPage() {
             <span style={eyebrow}>Why here</span>
             <h2
               style={{
-                fontWeight: 500,
-                fontSize: "clamp(2rem,4.4vw,3.4rem)",
+                fontWeight: 600,
+                fontSize: "clamp(2.26rem,4.4vw,3.84rem)",
                 lineHeight: 1.05,
                 letterSpacing: "-0.025em",
                 color: "#FFFFFF",
@@ -108,8 +108,8 @@ export default function CareersPage() {
               <Reveal key={c.t} className="lacquer card-lift" style={{ background: "#000000", padding: "clamp(28px,3vw,42px)" }}>
                 <h3
                   style={{
-                    fontWeight: 600,
-                    fontSize: "clamp(1.35rem,2.1vw,1.7rem)",
+                    fontWeight: 700,
+                    fontSize: "clamp(1.53rem,2.1vw,1.93rem)",
                     lineHeight: 1.14,
                     letterSpacing: "-0.02em",
                     color: "#FFFFFF",
@@ -120,7 +120,7 @@ export default function CareersPage() {
                 </h3>
                 <p
                   style={{
-                    fontSize: "0.98rem",
+                    fontSize: "1.1rem",
                     lineHeight: 1.55,
                     color: "rgba(255,255,255,0.55)",
                     margin: "14px 0 0",
@@ -157,8 +157,8 @@ export default function CareersPage() {
               <span style={eyebrow}>Open roles</span>
               <h2
                 style={{
-                  fontWeight: 500,
-                  fontSize: "clamp(2rem,4.4vw,3.4rem)",
+                  fontWeight: 600,
+                  fontSize: "clamp(2.26rem,4.4vw,3.84rem)",
                   lineHeight: 1.05,
                   letterSpacing: "-0.025em",
                   color: "#FFFFFF",
@@ -200,8 +200,8 @@ export default function CareersPage() {
                 <h3
                   style={{
                     flex: "1 1 280px",
-                    fontWeight: 600,
-                    fontSize: "clamp(1.3rem,2.4vw,1.9rem)",
+                    fontWeight: 700,
+                    fontSize: "clamp(1.47rem,2.4vw,2.15rem)",
                     lineHeight: 1.1,
                     letterSpacing: "-0.02em",
                     color: "#FFFFFF",
@@ -261,8 +261,8 @@ export default function CareersPage() {
           <span style={eyebrow}>No perfect fit?</span>
           <h2
             style={{
-              fontWeight: 500,
-              fontSize: "clamp(2.2rem,5.4vw,4rem)",
+              fontWeight: 600,
+              fontSize: "clamp(2.5rem,5.4vw,4.5rem)",
               lineHeight: 1.02,
               letterSpacing: "-0.03em",
               color: "#FFFFFF",
@@ -274,7 +274,7 @@ export default function CareersPage() {
           </h2>
           <p
             style={{
-              fontSize: "clamp(1.05rem,1.6vw,1.25rem)",
+              fontSize: "clamp(1.19rem,1.6vw,1.41rem)",
               lineHeight: 1.5,
               color: "rgba(255,255,255,0.6)",
               margin: "20px auto 0",

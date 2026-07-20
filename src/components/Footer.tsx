@@ -49,7 +49,7 @@ export default function Footer() {
             <p
               style={{
                 fontWeight: 500,
-                fontSize: "clamp(1.35rem,2.4vw,1.95rem)",
+                fontSize: "clamp(1.53rem,2.4vw,2.2rem)",
                 lineHeight: 1.18,
                 letterSpacing: "-0.02em",
                 color: "#FFFFFF",

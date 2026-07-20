@@ -132,7 +132,7 @@ export default async function CaseStudyPage({
               weight={[420, 700]}
               style={{
                 fontWeight: 600,
-                fontSize: "clamp(2.6rem,7.6vw,5.6rem)",
+                fontSize: "clamp(2.95rem,7.6vw,6.3rem)",
                 lineHeight: 0.98,
                 letterSpacing: "-0.03em",
                 color: "#FFFFFF",
@@ -147,8 +147,8 @@ export default async function CaseStudyPage({
               as="p"
               delay={320}
               style={{
-                fontWeight: 400,
-                fontSize: "clamp(1.15rem,2.2vw,1.7rem)",
+                fontWeight: 500,
+                fontSize: "clamp(1.3rem,2.2vw,1.93rem)",
                 lineHeight: 1.34,
                 color: "rgba(255,255,255,0.75)",
                 margin: "22px 0 0",
@@ -185,8 +185,8 @@ export default async function CaseStudyPage({
             <p style={{ ...numLabel, margin: "0 0 clamp(28px,4vw,48px)" }}>01 — Challenge</p>
             <p
               style={{
-                fontWeight: 400,
-                fontSize: "clamp(1.6rem,3.2vw,2.6rem)",
+                fontWeight: 500,
+                fontSize: "clamp(1.82rem,3.2vw,2.95rem)",
                 lineHeight: 1.28,
                 letterSpacing: "-0.015em",
                 color: "rgba(255,255,255,0.92)",
@@ -211,8 +211,8 @@ export default async function CaseStudyPage({
             <p style={{ ...numLabel, margin: "0 0 clamp(32px,4vw,56px)" }}>02 — Human truth</p>
             <p
               style={{
-                fontWeight: 500,
-                fontSize: "clamp(2.2rem,5.6vw,4.4rem)",
+                fontWeight: 600,
+                fontSize: "clamp(2.5rem,5.6vw,5rem)",
                 lineHeight: 1.1,
                 letterSpacing: "-0.03em",
                 color: "#FFFFFF",
@@ -232,8 +232,8 @@ export default async function CaseStudyPage({
             <p style={{ ...numLabel, margin: "0 0 clamp(28px,4vw,48px)" }}>03 — Idea</p>
             <p
               style={{
-                fontWeight: 500,
-                fontSize: "clamp(1.9rem,4.4vw,3.4rem)",
+                fontWeight: 600,
+                fontSize: "clamp(2.15rem,4.4vw,3.85rem)",
                 lineHeight: 1.18,
                 letterSpacing: "-0.025em",
                 color: "#FFFFFF",
@@ -260,8 +260,8 @@ export default async function CaseStudyPage({
               <p style={{ ...numLabel, margin: 0 }}>04 — Execution</p>
               <h2
                 style={{
-                  fontWeight: 600,
-                  fontSize: "clamp(1.9rem,4vw,3rem)",
+                  fontWeight: 700,
+                  fontSize: "clamp(2.15rem,4vw,3.4rem)",
                   lineHeight: 1.05,
                   letterSpacing: "-0.025em",
                   color: "#FFFFFF",
@@ -337,8 +337,8 @@ export default async function CaseStudyPage({
                     <div style={{ position: "relative" }}>
                       <h3
                         style={{
-                          fontWeight: 600,
-                          fontSize: "clamp(1.3rem,2.6vw,2rem)",
+                          fontWeight: 700,
+                          fontSize: "clamp(1.47rem,2.6vw,2.26rem)",
                           lineHeight: 1.08,
                           letterSpacing: "-0.02em",
                           color: "#FFFFFF",
@@ -349,7 +349,7 @@ export default async function CaseStudyPage({
                       </h3>
                       <p
                         style={{
-                          fontSize: "clamp(0.8rem,1.1vw,0.95rem)",
+                          fontSize: "clamp(0.9rem,1.1vw,1.07rem)",
                           lineHeight: 1.5,
                           color: "rgba(255,255,255,0.75)",
                           margin: "10px 0 0",
@@ -452,8 +452,8 @@ export default async function CaseStudyPage({
                   </div>
                   <p
                     style={{
-                      fontWeight: 400,
-                      fontSize: "1rem",
+                      fontWeight: 500,
+                      fontSize: "1.13rem",
                       lineHeight: 1.4,
                       color: "rgba(255,255,255,0.75)",
                       margin: "18px 0 0",
@@ -484,8 +484,8 @@ export default async function CaseStudyPage({
             <p style={{ ...numLabel, margin: "0 0 clamp(28px,4vw,48px)" }}>07 — Legacy</p>
             <p
               style={{
-                fontWeight: 400,
-                fontSize: "clamp(1.6rem,3.2vw,2.6rem)",
+                fontWeight: 500,
+                fontSize: "clamp(1.82rem,3.2vw,2.95rem)",
                 lineHeight: 1.28,
                 letterSpacing: "-0.015em",
                 color: "rgba(255,255,255,0.92)",
@@ -524,8 +524,8 @@ export default async function CaseStudyPage({
             >
               <h2
                 style={{
-                  fontWeight: 600,
-                  fontSize: "clamp(2.2rem,6vw,4.4rem)",
+                  fontWeight: 700,
+                  fontSize: "clamp(2.5rem,6vw,5rem)",
                   lineHeight: 0.98,
                   letterSpacing: "-0.03em",
                   color: "#FFFFFF",
@@ -556,8 +556,8 @@ export default async function CaseStudyPage({
             </span>
             <h2
               style={{
-                fontWeight: 500,
-                fontSize: "clamp(2.4rem,6.4vw,5rem)",
+                fontWeight: 600,
+                fontSize: "clamp(2.7rem,6.4vw,5.65rem)",
                 lineHeight: 1.0,
                 letterSpacing: "-0.03em",
                 color: "#FFFFFF",

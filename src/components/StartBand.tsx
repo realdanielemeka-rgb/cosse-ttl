@@ -81,8 +81,8 @@ export default function StartBand({
         </span>
         <h2
           style={{
-            fontWeight: 500,
-            fontSize: "clamp(2.6rem,7vw,5.4rem)",
+            fontWeight: 600,
+            fontSize: "clamp(2.95rem,7vw,6.1rem)",
             lineHeight: 1.0,
             letterSpacing: "-0.03em",
             color: "#FFFFFF",
@@ -94,7 +94,7 @@ export default function StartBand({
         </h2>
         <p
           style={{
-            fontSize: "clamp(1.05rem,1.7vw,1.3rem)",
+            fontSize: "clamp(1.19rem,1.7vw,1.47rem)",
             lineHeight: 1.5,
             color: "rgba(255,255,255,0.6)",
             margin: "22px auto 0",

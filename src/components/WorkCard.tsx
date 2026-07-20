@@ -165,8 +165,8 @@ const WorkCard = forwardRef<HTMLAnchorElement, WorkCardProps>(function WorkCard(
             </span>
             <h3
               style={{
-                fontWeight: 600,
-                fontSize: featured ? "clamp(1.8rem,4.4vw,3.4rem)" : "clamp(1.45rem,2.6vw,2.1rem)",
+                fontWeight: 700,
+                fontSize: featured ? "clamp(2.05rem,4.4vw,3.85rem)" : "clamp(1.64rem,2.6vw,2.37rem)",
                 lineHeight: 1.04,
                 letterSpacing: "-0.02em",
                 color: "#FFFFFF",
@@ -180,7 +180,7 @@ const WorkCard = forwardRef<HTMLAnchorElement, WorkCardProps>(function WorkCard(
       </div>
       <p
         style={{
-          fontSize: featured ? "clamp(0.85rem,1.2vw,1rem)" : "clamp(0.9rem,1.3vw,1.05rem)",
+          fontSize: featured ? "clamp(0.96rem,1.2vw,1.13rem)" : "clamp(1.02rem,1.3vw,1.19rem)",
           lineHeight: 1.5,
           color: "rgba(255,255,255,0.55)",
           margin: "14px 0 0",

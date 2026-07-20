@@ -49,7 +49,7 @@ export default function StudioPage() {
             weight={[340, 700]}
             style={{
               fontWeight: 500,
-              fontSize: "clamp(2.5rem,6.2vw,5rem)",
+              fontSize: "clamp(2.85rem,6.2vw,5.7rem)",
               lineHeight: 0.99,
               letterSpacing: "-0.03em",
               color: "#FFFFFF",
@@ -64,7 +64,7 @@ export default function StudioPage() {
             as="p"
             delay={260}
             style={{
-              fontSize: "clamp(1.15rem,1.9vw,1.5rem)",
+              fontSize: "clamp(1.3rem,1.9vw,1.7rem)",
               lineHeight: 1.45,
               color: "rgba(255,255,255,0.62)",
               margin: "26px 0 0",
@@ -89,8 +89,8 @@ export default function StudioPage() {
             <span style={eyebrow}>How the room works</span>
             <h2
               style={{
-                fontWeight: 500,
-                fontSize: "clamp(2rem,4.4vw,3.4rem)",
+                fontWeight: 600,
+                fontSize: "clamp(2.26rem,4.4vw,3.84rem)",
                 lineHeight: 1.05,
                 letterSpacing: "-0.025em",
                 color: "#FFFFFF",
@@ -113,8 +113,8 @@ export default function StudioPage() {
               <Reveal key={w.t} className="lacquer card-lift" style={{ background: "#000000", padding: "clamp(28px,3vw,42px)" }}>
                 <h3
                   style={{
-                    fontWeight: 600,
-                    fontSize: "clamp(1.35rem,2.1vw,1.7rem)",
+                    fontWeight: 700,
+                    fontSize: "clamp(1.53rem,2.1vw,1.93rem)",
                     lineHeight: 1.14,
                     letterSpacing: "-0.02em",
                     color: "#FFFFFF",
@@ -125,7 +125,7 @@ export default function StudioPage() {
                 </h3>
                 <p
                   style={{
-                    fontSize: "0.98rem",
+                    fontSize: "1.1rem",
                     lineHeight: 1.55,
                     color: "rgba(255,255,255,0.55)",
                     margin: "14px 0 0",
@@ -161,8 +161,8 @@ export default function StudioPage() {
             <span style={eyebrow}>Made in-house</span>
             <h2
               style={{
-                fontWeight: 500,
-                fontSize: "clamp(2rem,4.4vw,3.4rem)",
+                fontWeight: 600,
+                fontSize: "clamp(2.26rem,4.4vw,3.84rem)",
                 lineHeight: 1.05,
                 letterSpacing: "-0.025em",
                 color: "#FFFFFF",
@@ -173,7 +173,7 @@ export default function StudioPage() {
             </h2>
             <p
               style={{
-                fontSize: "clamp(1rem,1.4vw,1.15rem)",
+                fontSize: "clamp(1.13rem,1.4vw,1.3rem)",
                 lineHeight: 1.55,
                 color: "rgba(255,255,255,0.6)",
                 margin: "18px 0 0",
@@ -261,8 +261,8 @@ export default function StudioPage() {
           <span style={eyebrow}>The place · {studio.place.city}</span>
           <h2
             style={{
-              fontWeight: 500,
-              fontSize: "clamp(2rem,5vw,3.8rem)",
+              fontWeight: 600,
+              fontSize: "clamp(2.26rem,5vw,4.29rem)",
               lineHeight: 1.08,
               letterSpacing: "-0.03em",
               color: "#FFFFFF",
@@ -299,8 +299,8 @@ export default function StudioPage() {
             <span style={eyebrow}>Work here</span>
             <h2
               style={{
-                fontWeight: 500,
-                fontSize: "clamp(1.9rem,4vw,3rem)",
+                fontWeight: 600,
+                fontSize: "clamp(2.15rem,4vw,3.4rem)",
                 lineHeight: 1.06,
                 letterSpacing: "-0.025em",
                 color: "#FFFFFF",

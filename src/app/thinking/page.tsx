@@ -45,10 +45,10 @@ export default function ThinkingPage() {
             as="h1"
             delay={120}
             dur={0.9}
-            weight={[340, 680]}
+            weight={[340, 720]}
             style={{
               fontWeight: 500,
-              fontSize: "clamp(2.6rem,6.4vw,5.2rem)",
+              fontSize: "clamp(2.95rem,6.4vw,5.9rem)",
               lineHeight: 1.0,
               letterSpacing: "-0.03em",
               color: "#FFFFFF",
@@ -63,7 +63,7 @@ export default function ThinkingPage() {
             as="p"
             delay={260}
             style={{
-              fontSize: "clamp(1.1rem,1.8vw,1.5rem)",
+              fontSize: "clamp(1.24rem,1.8vw,1.7rem)",
               lineHeight: 1.45,
               color: "rgba(255,255,255,0.6)",
               margin: "26px 0 0",
@@ -130,8 +130,8 @@ export default function ThinkingPage() {
             <div style={{ position: "relative", maxWidth: 760 }}>
               <h2
                 style={{
-                  fontWeight: 600,
-                  fontSize: "clamp(2rem,4.6vw,3.6rem)",
+                  fontWeight: 700,
+                  fontSize: "clamp(2.26rem,4.6vw,4.07rem)",
                   lineHeight: 1.04,
                   letterSpacing: "-0.025em",
                   color: "#FFFFFF",
@@ -142,7 +142,7 @@ export default function ThinkingPage() {
               </h2>
               <p
                 style={{
-                  fontSize: "clamp(1.05rem,1.6vw,1.3rem)",
+                  fontSize: "clamp(1.19rem,1.6vw,1.47rem)",
                   lineHeight: 1.5,
                   color: "rgba(255,255,255,0.65)",
                   margin: "18px 0 0",
@@ -212,8 +212,8 @@ export default function ThinkingPage() {
               </span>
               <h3
                 style={{
-                  fontWeight: 500,
-                  fontSize: "clamp(1.4rem,2.1vw,1.85rem)",
+                  fontWeight: 600,
+                  fontSize: "clamp(1.58rem,2.1vw,2.09rem)",
                   lineHeight: 1.12,
                   letterSpacing: "-0.015em",
                   color: "#FFFFFF",
@@ -224,7 +224,7 @@ export default function ThinkingPage() {
               </h3>
               <p
                 style={{
-                  fontSize: "0.98rem",
+                  fontSize: "1.1rem",
                   lineHeight: 1.5,
                   color: "rgba(255,255,255,0.55)",
                   margin: "14px 0 0",

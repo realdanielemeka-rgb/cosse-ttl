@@ -5,11 +5,11 @@ import Footer from "@/components/Footer";
 import { capabilities, method } from "@/content";
 
 export const metadata: Metadata = {
-  title: "Capabilities",
+  title: "We Do",
   description:
     "Six practices under one roof: brand, media, experiential, social, public sector and production. We plan it, make it and run it.",
   openGraph: {
-    title: "Capabilities — Cossé TTL",
+    title: "We Do — Cossé TTL",
     description:
       "Six practices under one roof: brand, media, experiential, social, public sector and production. We plan it, make it and run it.",
   },
@@ -42,7 +42,7 @@ export default function CapabilitiesPage() {
               margin: 0,
             }}
           >
-            Capabilities
+            We Do
           </Reveal>
           <Reveal
             as="h1"

@@ -97,7 +97,7 @@ export interface AboutContent {
 }
 
 export const about: AboutContent = {
-  lead: "Thirty years turning simple human truths into total brand experiences.",
+  lead: "Turning Simple Human Truths into total Brand Experiences.",
   storyHeading: "Our Story",
   body: [
     "We started in Lagos in 1995 as Bates Cossé. Three decades later we still do one thing: find the simple human truth inside a business problem, and build a total brand experience around it.",
@@ -123,9 +123,9 @@ export interface Value {
 // removed per client instruction.
 export const values: Value[] = [
   { word: "Heart", line: "We put everything we have into everything we do." },
-  { word: "Can-Do", line: "We go any length to deliver on our promises." },
+  { word: "Can-Do", line: "We go to any length to deliver impactful solutions." },
   { word: "Will Do", line: "We always deliver impactful ideas that challenge the status quo." },
-  { word: "Eclectic", line: "Youthful, mold-breaking, tangential thinking and delivery." },
+  { word: "Eclectic", line: "Youthful. Mold breaking. Tangential thinking." },
 ];
 
 // "Our Philosophy" — real client copy as of this correction round (no longer
@@ -133,7 +133,7 @@ export const values: Value[] = [
 // <Placeholder>.
 export const ourPhilosophy = {
   heading: "Our Philosophy",
-  body: "Human beings are simple at heart and can always be engaged in simple ways.",
+  body: "Human beings are simple at heart and can always be engaged with in simple ways.",
 };
 
 export const ourValues = {

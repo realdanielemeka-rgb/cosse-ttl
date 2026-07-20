@@ -292,10 +292,10 @@ export default function HomeView() {
         <div style={{ maxWidth: 1320, margin: "0 auto" }}>
           <Reveal style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: 20, marginBottom: "clamp(36px,5vw,64px)" }}>
             <div style={{ maxWidth: "24ch" }}>
-              <span style={eyebrow}>Capabilities</span>
+              <span style={eyebrow}>We Do</span>
             </div>
             <Link href="/capabilities" data-cut className="hov-bright" style={{ fontSize: 12, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase", padding: "13px 0", color: "rgba(255,255,255,0.6)", whiteSpace: "nowrap" }}>
-              All capabilities →
+              All we do →
             </Link>
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(310px,1fr))", gap: 1, background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.12)" }}>

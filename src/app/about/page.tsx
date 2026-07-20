@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import Grain from "@/components/Grain";
 import StartBand from "@/components/StartBand";
 import Footer from "@/components/Footer";
-import { about, timeline, values, leadership, clients } from "@/content";
+import { about, values, clients } from "@/content";
 
 export const metadata: Metadata = {
   title: "About",
@@ -26,9 +25,7 @@ const eyebrow = {
 
 export default function AboutPage() {
   const lead = about.lead;
-  const body = about.body;
   const stats = about.stats;
-  const team = leadership;
   const clientItems = clients.map((x) => ({ file: x.file, name: x.name }));
 
   return (
@@ -41,18 +38,6 @@ export default function AboutPage() {
         }}
       >
         <div style={{ maxWidth: 1320, margin: "0 auto" }}>
-          <Reveal
-            as="p"
-            style={{
-              fontSize: 12,
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.55)",
-              margin: 0,
-            }}
-          >
-            The studio
-          </Reveal>
           <Reveal
             as="h1"
             delay={120}
@@ -99,21 +84,6 @@ export default function AboutPage() {
             }}
           >
             <span style={eyebrow}>{about.storyHeading}</span>
-            {body.map((para) => (
-              <p
-                key={para}
-                style={{
-                  fontSize: "clamp(1.2rem,1.9vw,1.55rem)",
-                  lineHeight: 1.5,
-                  letterSpacing: "-0.005em",
-                  color: "rgba(255,255,255,0.82)",
-                  margin: 0,
-                  textWrap: "pretty",
-                }}
-              >
-                {para}
-              </p>
-            ))}
           </Reveal>
           <Reveal
             delay={120}
@@ -156,93 +126,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* TIMELINE */}
-      <section
-        style={{
-          background: "#0A0A0A",
-          padding: "clamp(80px,11vw,150px) clamp(20px,5vw,60px)",
-          borderTop: "1px solid rgba(255,255,255,0.12)",
-        }}
-      >
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
-          <Reveal style={{ marginBottom: "clamp(36px,5vw,60px)", maxWidth: 600 }}>
-            <span style={eyebrow}>1995 — Now</span>
-            <h2
-              style={{
-                fontWeight: 500,
-                fontSize: "clamp(2.1rem,4.6vw,3.6rem)",
-                lineHeight: 1.05,
-                letterSpacing: "-0.025em",
-                color: "#FFFFFF",
-                margin: "18px 0 0",
-              }}
-            >
-              Legacy is leverage.
-            </h2>
-          </Reveal>
-          <div
-            style={{
-              borderLeft: "1px solid rgba(255,255,255,0.16)",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            {timeline.map((t) => (
-              <Reveal
-                key={t.year}
-                style={{
-                  position: "relative",
-                  padding: "0 0 clamp(26px,3vw,40px) clamp(24px,3vw,40px)",
-                }}
-              >
-                <span
-                  aria-hidden="true"
-                  style={{
-                    position: "absolute",
-                    top: 9,
-                    left: -5,
-                    width: 9,
-                    height: 9,
-                    borderRadius: "50%",
-                    background: "#FFFFFF",
-                  }}
-                />
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    alignItems: "baseline",
-                    gap: "8px 22px",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontWeight: 600,
-                      fontSize: "clamp(1.5rem,2.6vw,2.1rem)",
-                      letterSpacing: "-0.02em",
-                      color: "#FFFFFF",
-                    }}
-                  >
-                    {t.year}
-                  </span>
-                  <p
-                    style={{
-                      fontSize: "clamp(0.98rem,1.4vw,1.15rem)",
-                      lineHeight: 1.5,
-                      color: "rgba(255,255,255,0.6)",
-                      margin: 0,
-                      maxWidth: "54ch",
-                    }}
-                  >
-                    {t.line}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* VALUES / DNA */}
       <section
         style={{
@@ -254,18 +137,6 @@ export default function AboutPage() {
         <div style={{ maxWidth: 1320, margin: "0 auto" }}>
           <Reveal style={{ marginBottom: "clamp(36px,5vw,56px)", maxWidth: 600 }}>
             <span style={eyebrow}>{about.dnaHeading}</span>
-            <h2
-              style={{
-                fontWeight: 500,
-                fontSize: "clamp(2.1rem,4.6vw,3.6rem)",
-                lineHeight: 1.05,
-                letterSpacing: "-0.025em",
-                color: "#FFFFFF",
-                margin: "18px 0 0",
-              }}
-            >
-              What we are made of.
-            </h2>
           </Reveal>
           <div
             style={{
@@ -306,7 +177,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* LEADERSHIP */}
+      {/* CLIENTS */}
       <section
         style={{
           background: "#0A0A0A",
@@ -315,121 +186,6 @@ export default function AboutPage() {
         }}
       >
         <div style={{ maxWidth: 1320, margin: "0 auto" }}>
-          <Reveal style={{ marginBottom: "clamp(36px,5vw,56px)", maxWidth: 600 }}>
-            <span style={eyebrow}>The people</span>
-            <h2
-              style={{
-                fontWeight: 500,
-                fontSize: "clamp(2.1rem,4.6vw,3.6rem)",
-                lineHeight: 1.05,
-                letterSpacing: "-0.025em",
-                color: "#FFFFFF",
-                margin: "18px 0 0",
-              }}
-            >
-              Who you&apos;ll work with.
-            </h2>
-          </Reveal>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
-              gap: "clamp(20px,2.4vw,32px)",
-            }}
-          >
-            {team.map((p) => (
-              <Reveal key={p.name}>
-                <div
-                  className="lacquer-sweep"
-                  style={{
-                    position: "relative",
-                    overflow: "hidden",
-                    aspectRatio: "3/4",
-                    background: "#141414",
-                    border: "1px solid rgba(255,255,255,0.12)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginBottom: 16,
-                  }}
-                >
-                  <span
-                    aria-hidden="true"
-                    style={{
-                      fontWeight: 600,
-                      fontSize: "clamp(2.2rem,4vw,3rem)",
-                      color: "rgba(255,255,255,0.18)",
-                      letterSpacing: "0.02em",
-                    }}
-                  >
-                    {p.initials}
-                  </span>
-                  <Grain size={200} opacity={0.4} />
-                  <span
-                    style={{
-                      position: "absolute",
-                      top: 12,
-                      left: 12,
-                      fontSize: 10,
-                      letterSpacing: "0.12em",
-                      textTransform: "uppercase",
-                      color: "rgba(255,255,255,0.4)",
-                    }}
-                  >
-                    Portrait
-                  </span>
-                </div>
-                <h3
-                  style={{
-                    fontWeight: 600,
-                    fontSize: "1.2rem",
-                    lineHeight: 1.15,
-                    color: "#FFFFFF",
-                    margin: 0,
-                  }}
-                >
-                  {p.name}
-                </h3>
-                <p
-                  style={{
-                    fontSize: "0.92rem",
-                    letterSpacing: "0.01em",
-                    color: "rgba(255,255,255,0.55)",
-                    margin: "6px 0 0",
-                  }}
-                >
-                  {p.role}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CLIENTS */}
-      <section
-        style={{
-          background: "#000000",
-          padding: "clamp(80px,11vw,150px) clamp(20px,5vw,60px)",
-          borderTop: "1px solid rgba(255,255,255,0.12)",
-        }}
-      >
-        <div style={{ maxWidth: 1320, margin: "0 auto" }}>
-          <Reveal style={{ marginBottom: "clamp(36px,5vw,56px)", maxWidth: 640 }}>
-            <span style={eyebrow}>Clients</span>
-            <h2
-              style={{
-                fontWeight: 500,
-                fontSize: "clamp(2.1rem,4.6vw,3.6rem)",
-                lineHeight: 1.05,
-                letterSpacing: "-0.025em",
-                color: "#FFFFFF",
-                margin: "18px 0 0",
-              }}
-            >
-              Logos of clients we have worked for.
-            </h2>
-          </Reveal>
           <Reveal
             style={{
               display: "grid",
@@ -515,7 +271,7 @@ export default function AboutPage() {
       </section>
 
       <StartBand
-        title="Now you know us. Let's work."
+        title="Now you know us, let's work together."
         sub="Thirty years of finding the truth in a business problem. Bring us yours."
       />
       <Footer />

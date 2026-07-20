@@ -79,15 +79,15 @@ export default function Footer() {
                 paddingBottom: 8,
               }}
             >
-              Do you want to work with us? <span aria-hidden="true">→</span>
+              Let's do some great work together <span aria-hidden="true">→</span>
             </Link>
           </div>
 
           <div style={{ display: "flex", flexWrap: "wrap", gap: "40px clamp(40px,5vw,72px)" }}>
             <nav aria-label="Explore" style={{ display: "flex", flexDirection: "column", gap: 7 }}>
               <span style={colLabel}>Explore</span>
+              <Link href="/capabilities" data-cut className="hov-bright" style={linkStyle}><SwapText>We Do</SwapText></Link>
               <Link href="/work" data-cut className="hov-bright" style={linkStyle}><SwapText>Work</SwapText></Link>
-              <Link href="/capabilities" data-cut className="hov-bright" style={linkStyle}><SwapText>Capabilities</SwapText></Link>
               <Link href="/studio" data-cut className="hov-bright" style={linkStyle}><SwapText>Studio</SwapText></Link>
               <Link href="/about" data-cut className="hov-bright" style={linkStyle}><SwapText>About</SwapText></Link>
               <Link href="/thinking" data-cut className="hov-bright" style={linkStyle}><SwapText>Thinking</SwapText></Link>

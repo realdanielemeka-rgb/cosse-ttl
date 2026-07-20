@@ -582,7 +582,7 @@ export default async function CaseStudyPage({
                   padding: "19px 38px",
                 }}
               >
-                Do you want to work with us?
+                Let's do some great work together
               </Link>
             </div>
           </Reveal>

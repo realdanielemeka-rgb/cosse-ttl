@@ -12,8 +12,8 @@ const EASE_CINE = "cubic-bezier(0.16,1,0.3,1)";
 const EASE_CUT = "cubic-bezier(0.85,0,0.15,1)";
 
 const PRIMARY = [
+  { label: "We Do", href: "/capabilities" },
   { label: "Work", href: "/work" },
-  { label: "Capabilities", href: "/capabilities" },
   { label: "Studio", href: "/studio" },
   { label: "About", href: "/about" },
   { label: "Thinking", href: "/thinking" },
